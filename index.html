@@ -7,45 +7,45 @@
     <title>The Bunker</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="font-sans font-thin">
-    <div class="w-full h-screen relative text-white">
+  <body class="font-sans font-thin overflow-hidden">
+    <!-- panel -->
+    <div class="fixed z-10 right-12 h-full flex flex-col place-content-center">
+      <div
+        class="flex flex-col px-6 py-6 text-white font-normal border border-gray-400 bg-[url('/images/panel.jpeg')] shadow-[0_0_5px_black]"
+      >
+        <input
+          type="button"
+          class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
+          value="L"
+          onclick="clickBtn('L')"
+        />
+        <input
+          type="button"
+          class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
+          value="B1"
+          onclick="clickBtn('B1')"
+        />
+        <input
+          type="button"
+          class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
+          value="B2"
+          onclick="clickBtn('B2')"
+        />
+        <input
+          type="button"
+          class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
+          value="B3"
+          onclick="clickBtn('B3')"
+        />
+      </div>
+    </div>
+
+    <!-- section1 -->
+    <div id="section1" class="h-screen relative text-white">
       <img
         src="./images/elevator.jpg"
         class="absolute top-0 left-0 w-full h-full object-cover"
       />
-
-      <header
-        class="fixed z-10 right-12 h-full flex flex-col place-content-center"
-      >
-        <div
-          class="flex flex-col px-6 py-6 text-white font-normal border border-gray-400 bg-[url('/images/panel.jpeg')]"
-        >
-          <input
-            type="button"
-            class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer"
-            value="L"
-            onclick="console.log('L')"
-          />
-          <input
-            type="button"
-            class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer"
-            value="B1"
-            onclick="console.log('b1')"
-          />
-          <input
-            type="button"
-            class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer"
-            value="B2"
-            onclick="console.log('b2')"
-          />
-          <input
-            type="button"
-            class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer"
-            value="B3"
-            onclick="console.log('b3')"
-          />
-        </div>
-      </header>
 
       <div
         class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-center px-12"
@@ -64,27 +64,20 @@
       </div>
     </div>
 
-    <div class="py-24 px-6">
+    <!-- section2 -->
+    <div id="section2" class="h-screen py-24 px-6">
       <div class="max-w-6xl mx-auto mb-12">
         <h2
           class="mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12"
         >
-          Uniting fresh design and clean code to create beautiful websites.
+          create beautiful websites.
         </h2>
 
         <p
           class="mb-6 text-gray-600 mx-auto max-w-lg text-center leading-relaxed"
         >
           Donec id elit non mi porta gravida at eget metus. Vivamus sagittis
-          lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis
-          risus eget urna mollis ornare vel eu leo. Cras mattis consectetur
-          purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.
-          Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        </p>
-
-        <p class="text-gray-600 mx-auto max-w-lg text-center leading-relaxed">
-          For more photography check our
-          <a href="#" class="text-black">Instagram</a>
+          lacus vel augue laoreet rutrum faucibus dolor auctor.
         </p>
       </div>
 
@@ -125,6 +118,79 @@
       </div>
     </div>
 
+    <!-- section3 -->
+    <div id="section3" class="h-screen py-24 px-6">
+      <div class="max-w-6xl mx-auto mb-12">
+        <h2
+          class="mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12"
+        >
+          create beautiful websites.
+        </h2>
+
+        <p
+          class="mb-6 text-gray-600 mx-auto max-w-lg text-center leading-relaxed"
+        >
+          Donec id elit non mi porta gravida at eget metus. Vivamus sagittis
+          lacus vel augue laoreet rutrum faucibus dolor auctor.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto flex flex-wrap items-start">
+        <div class="w-full md:w-1/2 p-4 mb-12">
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800"
+            class="block w-full h-auto mb-12"
+          />
+          <a href="#" class="block text-2xl text-black text-center mb-6"
+            >About Us</a
+          >
+          <p class="mb-6 text-gray-600 text-center leading-relaxed text-sm">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+          </p>
+          <a href="#" class="block text-black text-center">Read more</a>
+        </div>
+
+        <div class="w-full md:w-1/2 p-4 mb-12">
+          <img
+            src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=800"
+            class="block w-full h-auto mb-12"
+          />
+          <a href="#" class="block text-2xl text-black text-center mb-6"
+            >What's New?</a
+          >
+          <p class="mb-6 text-gray-600 text-center leading-relaxed text-sm">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+          </p>
+          <a href="#" class="block text-black text-center">Read more</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- section4 -->
+    <div id="section4" class="h-screen py-24 px-6">
+      <div class="max-w-6xl mx-auto mb-12">
+        <h2
+          class="mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12"
+        >
+          create beautiful websites.
+        </h2>
+
+        <p
+          class="mb-6 text-gray-600 mx-auto max-w-lg text-center leading-relaxed"
+        >
+          Donec id elit non mi porta gravida at eget metus. Vivamus sagittis
+          lacus vel augue laoreet rutrum faucibus dolor auctor.
+        </p>
+      </div>
+    </div>
+
+    <!-- footer -->
     <div
       class="bg-gray-900 text-gray-100 text-center flex justify-center px-6 py-12"
     >
@@ -132,6 +198,6 @@
       <a href="#" class="mx-6 hover:text-gray-600">0800 123 456</a>
       <a href="#" class="mx-6 hover:text-gray-600">my@email.com</a>
     </div>
-    <script type="module" src="js/app.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
