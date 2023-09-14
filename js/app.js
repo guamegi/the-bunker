@@ -1,7 +1,4 @@
-var tt = "tt";
-
-const clickBtn = (stair) => {
-  console.log(stair);
+const clickPanel = (stair) => {
   switch (stair) {
     case "L":
       smoothScrollTo("section1");
@@ -20,12 +17,12 @@ const clickBtn = (stair) => {
   }
 };
 
+/* utils */
 const smoothScrollTo = (containerByID) => {
   const node = document.querySelector(`#${containerByID}`);
-  const navbarHeight = 0;
 
   window.scrollTo({
-    top: node.offsetTop - navbarHeight,
+    top: node.offsetTop,
     behavior: "smooth",
   });
 };

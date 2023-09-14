@@ -9,7 +9,9 @@
   </head>
   <body class="font-sans font-thin overflow-hidden">
     <!-- panel -->
-    <div class="fixed z-10 right-12 h-full flex flex-col place-content-center">
+    <div
+      class="fixed z-10 right-0 md:right-10 scale-75 md:scale-100 h-full flex flex-col place-content-end md:place-content-center"
+    >
       <div
         class="flex flex-col px-6 py-6 text-white font-normal border border-gray-400 bg-[url('./images/panel.jpeg')] shadow-[0_0_5px_black]"
       >
@@ -17,25 +19,25 @@
           type="button"
           class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
           value="L"
-          onclick="clickBtn('L')"
+          onclick="clickPanel('L')"
         />
         <input
           type="button"
           class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
           value="B1"
-          onclick="clickBtn('B1')"
+          onclick="clickPanel('B1')"
         />
         <input
           type="button"
           class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
           value="B2"
-          onclick="clickBtn('B2')"
+          onclick="clickPanel('B2')"
         />
         <input
           type="button"
           class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
           value="B3"
-          onclick="clickBtn('B3')"
+          onclick="clickPanel('B3')"
         />
       </div>
     </div>
@@ -51,15 +53,14 @@
         class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-center px-12"
       >
         <div>
-          <h1 class="text-3xl md:text-6xl leading-tight mb-16">
-            Duis aute irure dolor, <br class="hidden md:block" />reprehenderit
-            in voluptate.
-          </h1>
-          <a
+          <!-- <h1 class="text-3xl md:text-6xl mb-10">Hi!</h1> -->
+          <h1 class="text-2xl md:text-6xl">Please control the right panel!</h1>
+          <br />
+          <!-- <a
             href="#"
             class="border border-white py-4 px-8 hover:bg-white hover:text-black"
             >Get started</a
-          >
+          > -->
         </div>
       </div>
     </div>
