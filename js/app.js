@@ -1,28 +1,57 @@
 const clickPanel = (stair) => {
   switch (stair) {
     case "L":
-      smoothScrollTo("section1");
+      deleyScrollTo("section1");
       break;
     case "B1":
-      smoothScrollTo("section2");
+      deleyScrollTo("section2");
       break;
     case "B2":
-      smoothScrollTo("section3");
+      deleyScrollTo("section3");
       break;
     case "B3":
-      smoothScrollTo("section4");
+      deleyScrollTo("section4");
       break;
     default:
-      smoothScrollTo("section1");
+      // deleyScrollTo("section1");
+      openDoors();
   }
 };
 
-/* utils */
-const smoothScrollTo = (containerByID) => {
-  const node = document.querySelector(`#${containerByID}`);
+const canvas = document.querySelector("#canvas");
+const ctx = canvas.getContext("2d");
 
-  window.scrollTo({
-    top: node.offsetTop,
-    behavior: "smooth",
-  });
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const init = () => {
+  drawDoors();
+  drawLCD();
 };
+
+const drawDoors = () => {
+  console.log("draw doors");
+};
+
+const drawLCD = () => {
+  console.log("draw LCD");
+};
+
+const openDoors = () => {
+  console.log("open doors");
+  // open animation
+};
+
+/* utils */
+const deleyScrollTo = (containerByID) => {
+  setTimeout(() => {
+    const node = document.querySelector(`#${containerByID}`);
+
+    window.scrollTo({
+      top: node.offsetTop,
+      behavior: "instant", // ex: smooth
+    });
+  }, 1000);
+};
+
+init();

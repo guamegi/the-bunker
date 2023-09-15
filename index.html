@@ -7,60 +7,52 @@
     <title>The Bunker</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="font-sans font-thin overflow-hidden">
-    <!-- panel -->
-    <div
-      class="fixed z-10 right-0 md:right-10 scale-75 md:scale-100 h-full flex flex-col place-content-end md:place-content-center"
-    >
-      <div
-        class="flex flex-col px-6 py-6 text-white font-normal border border-gray-400 bg-[url('./images/panel.jpeg')] shadow-[0_0_5px_black]"
-      >
-        <input
-          type="button"
-          class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
-          value="L"
-          onclick="clickPanel('L')"
-        />
-        <input
-          type="button"
-          class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
-          value="B1"
-          onclick="clickPanel('B1')"
-        />
-        <input
-          type="button"
-          class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
-          value="B2"
-          onclick="clickPanel('B2')"
-        />
-        <input
-          type="button"
-          class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[0_0_3px_black] hover:scale-95"
-          value="B3"
-          onclick="clickPanel('B3')"
-        />
-      </div>
-    </div>
-
+  <!-- <body class="font-sans font-thin overflow-hidden"> -->
+  <body class="font-sans font-thin">
     <!-- section1: cover -->
-    <div id="section1" class="h-screen relative text-white">
-      <img
+    <div id="section1" class="h-screen relative text-white bg-[#2c2f36]">
+      <!-- <img
         src="./images/elevator.jpg"
         class="absolute top-0 left-0 w-full h-full object-cover"
-      />
+      /> -->
 
-      <div
-        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-center px-12"
-      >
-        <div>
-          <!-- <h1 class="text-3xl md:text-6xl mb-10">Hi!</h1> -->
+      <div class="flex h-full">
+        <div class="flex flex-row m-auto">
+          <!-- canvas -->
+          <canvas id="canvas" class="w-[800px] h-[600px] bg-black"></canvas>
+
+          <!-- panel -->
+          <div
+            class="flex flex-col ml-10 px-6 justify-center text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] shadow-[3px_3px_5px_black]"
+          >
+            <input
+              type="button"
+              class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+              value="L"
+              onclick="clickPanel('L')"
+            />
+            <input
+              type="button"
+              class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+              value="B1"
+              onclick="clickPanel('B1')"
+            />
+            <input
+              type="button"
+              class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+              value="B2"
+              onclick="clickPanel('B2')"
+            />
+            <input
+              type="button"
+              class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+              value="B3"
+              onclick="clickPanel('B3')"
+            />
+          </div>
+          <!-- <div>
           <h1 class="text-2xl md:text-6xl">Please control the right panel!</h1>
-          <br />
-          <!-- <a
-            href="#"
-            class="border border-white py-4 px-8 hover:bg-white hover:text-black"
-            >Get started</a
-          > -->
+        </div> -->
         </div>
       </div>
     </div>
@@ -86,7 +78,7 @@
 
       <div class="max-w-5xl mx-auto flex flex-wrap items-start">
         <div class="w-full md:w-1/2 p-4 mb-12">
-          <p class="block text-2xl text-black text-center mb-6">experience</p>
+          <p class="block text-2xl text-black text-center mb-6">💡experience</p>
           <li class="mb-6 text-gray-600 text-center leading-relaxed text-sm">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -114,9 +106,13 @@
         </div>
 
         <div class="w-full md:w-1/2 p-4 mb-12">
-          <img
+          <!-- <img
             src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=800"
             class="block w-full h-auto mb-12"
+          /> -->
+          <img
+            src="./images/projects/myImage.png"
+            class="block w-full h-auto px-20 mb-12"
           />
           <p class="block text-2xl text-black text-center mb-6">hobby?</p>
           <p class="mb-6 text-gray-600 text-center leading-relaxed text-sm">
