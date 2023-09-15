@@ -1,3 +1,23 @@
+let leftDoorImg;
+let rightDoorImg;
+
+const DOOR_WIDTH = 150;
+const DOOR_HEIGHT = 200;
+const DOOR_OPEN_SPEED = 3000;
+
+let leftDoorX = 0;
+let rightDoorX = 151;
+
+const canvasDoors = document.querySelector("#canvasDoors");
+const canvasLCD = document.querySelector("#canvasLCD");
+const ctxDoors = canvasDoors.getContext("2d");
+const ctxLCD = canvasLCD.getContext("2d");
+
+const init = () => {
+  makeDoors();
+  makeLCD();
+};
+
 const clickPanel = (stair) => {
   switch (stair) {
     case "L":
@@ -13,36 +33,66 @@ const clickPanel = (stair) => {
       deleyScrollTo("section4");
       break;
     default:
-      // deleyScrollTo("section1");
-      openDoors();
+      deleyScrollTo("section1");
   }
 };
 
-const canvasDoors = document.querySelector("#canvasDoors");
-const canvasLCD = document.querySelector("#canvasLCD");
-const ctxDoors = canvasDoors.getContext("2d");
-const ctxLCD = canvasLCD.getContext("2d");
-
-const init = () => {
-  makeDoors();
-  makeLCD();
-};
-
 const makeDoors = () => {
-  console.log("draw doors");
-};
+  console.log("make doors");
+  leftDoorImg = new Image();
+  rightDoorImg = new Image();
 
+  leftDoorImg.src = "../images/panel.jpeg";
+  rightDoorImg.src = "../images/panel.jpeg";
+
+  ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
+
+  leftDoorImg.onload = () => {
+    ctxDoors.drawImage(leftDoorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  };
+  rightDoorImg.onload = () => {
+    ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  };
+};
 const makeLCD = () => {
-  console.log("draw LCD");
+  console.log("make LCD");
 };
 
+// open animation
 const openDoors = () => {
   console.log("open doors");
-  // open animation
+  requestAnimationFrame(moveDoors);
+};
+
+const closeDoors = () => {
+  console.log("close doors");
+  ctxDoors.drawImage(leftDoorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
+
+  leftDoorX = 0;
+  rightDoorX = 151;
+};
+
+const moveDoors = () => {
+  console.log("move doors");
+  if (leftDoorX < -150) {
+    return;
+  }
+
+  ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
+  ctxDoors.drawImage(leftDoorImg, leftDoorX, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(rightDoorImg, rightDoorX, 0, DOOR_WIDTH, DOOR_HEIGHT);
+
+  leftDoorX--;
+  rightDoorX++;
+
+  requestAnimationFrame(moveDoors);
 };
 
 /* utils */
 const deleyScrollTo = (containerByID) => {
+  openDoors();
+
   setTimeout(() => {
     const node = document.querySelector(`#${containerByID}`);
 
@@ -50,7 +100,9 @@ const deleyScrollTo = (containerByID) => {
       top: node.offsetTop,
       behavior: "instant", // ex: smooth
     });
-  }, 1000);
+
+    closeDoors();
+  }, DOOR_OPEN_SPEED);
 };
 
 init();
