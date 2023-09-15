@@ -19,36 +19,47 @@
       <div class="flex h-full">
         <div class="flex flex-row m-auto">
           <!-- canvas -->
-          <canvas id="canvas" class="w-[800px] h-[600px] bg-black"></canvas>
+          <canvas
+            id="canvasDoors"
+            class="w-[800px] h-[600px] bg-black"
+          ></canvas>
 
           <!-- panel -->
           <div
-            class="flex flex-col ml-10 px-6 justify-center text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] shadow-[3px_3px_5px_black]"
+            class="flex flex-col ml-10 px-6 justify-evenly text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] shadow-[3px_3px_5px_black]"
           >
-            <input
-              type="button"
-              class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
-              value="L"
-              onclick="clickPanel('L')"
-            />
-            <input
-              type="button"
-              class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
-              value="B1"
-              onclick="clickPanel('B1')"
-            />
-            <input
-              type="button"
-              class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
-              value="B2"
-              onclick="clickPanel('B2')"
-            />
-            <input
-              type="button"
-              class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
-              value="B3"
-              onclick="clickPanel('B3')"
-            />
+            <!-- LCD -->
+            <div class="w-[150px] h-[77px] p-4 bg-black text-center">
+              <canvas id="canvasLCD" class="w-[24px] h-[40px]"></canvas>
+            </div>
+
+            <!-- control button -->
+            <div class="flex flex-col mx-auto">
+              <input
+                type="button"
+                class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                value="L"
+                onclick="clickPanel('L')"
+              />
+              <input
+                type="button"
+                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                value="B1"
+                onclick="clickPanel('B1')"
+              />
+              <input
+                type="button"
+                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                value="B2"
+                onclick="clickPanel('B2')"
+              />
+              <input
+                type="button"
+                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                value="B3"
+                onclick="clickPanel('B3')"
+              />
+            </div>
           </div>
           <!-- <div>
           <h1 class="text-2xl md:text-6xl">Please control the right panel!</h1>

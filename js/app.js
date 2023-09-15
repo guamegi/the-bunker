@@ -18,22 +18,21 @@ const clickPanel = (stair) => {
   }
 };
 
-const canvas = document.querySelector("#canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const canvasDoors = document.querySelector("#canvasDoors");
+const canvasLCD = document.querySelector("#canvasLCD");
+const ctxDoors = canvasDoors.getContext("2d");
+const ctxLCD = canvasLCD.getContext("2d");
 
 const init = () => {
-  drawDoors();
-  drawLCD();
+  makeDoors();
+  makeLCD();
 };
 
-const drawDoors = () => {
+const makeDoors = () => {
   console.log("draw doors");
 };
 
-const drawLCD = () => {
+const makeLCD = () => {
   console.log("draw LCD");
 };
 
