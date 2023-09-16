@@ -57,12 +57,12 @@ const alphabetL = {
   x: [2],
   y: [0, 1],
 };
-const basement = {
+const hyphen = {
   x: [1],
   y: [],
 };
 
-const supported_numbers = [empty, one, two, alphabetL, basement];
+const supported_numbers = [empty, one, two, alphabetL, hyphen];
 
 const utils = {
   is_vertical(points) {
