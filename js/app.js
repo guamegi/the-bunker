@@ -3,12 +3,12 @@ const canvasLCD = document.querySelector("#canvasLCD");
 const ctxDoors = canvasDoors.getContext("2d");
 const ctxLCD = canvasLCD.getContext("2d");
 const wrapper = document.querySelector("#wrapper");
+const elevatorBtn = document.querySelector("#elevatorBtn");
 
 const DOOR_WIDTH = 150;
 let DOOR_HEIGHT = wrapper.clientHeight;
-const DOOR_OPEN_SPEED = 3000;
 
-let seletedSection = "";
+let seletedSection = "section1";
 let leftDoorImg;
 let rightDoorImg;
 
@@ -18,6 +18,7 @@ let rightDoorX = 151;
 const init = () => {
   makeDoors();
   makeLCD();
+  moveToSection();
 };
 
 const clickPanel = (stair) => {
@@ -34,9 +35,8 @@ const clickPanel = (stair) => {
     case "B3":
       seletedSection = "section4";
       break;
-    default:
-      seletedSection = "section1";
   }
+
   openDoors();
 };
 
@@ -67,6 +67,7 @@ const makeLCD = () => {
 // open animation
 const openDoors = () => {
   console.log("open doors");
+  if (leftDoorX !== 0) return;
   requestAnimationFrame(moveDoors);
 };
 
@@ -104,6 +105,13 @@ const moveToSection = () => {
     top: node.offsetTop,
     behavior: "instant", // ex: smooth
   });
+
+  toggleElevatorBtn();
+};
+
+const toggleElevatorBtn = () => {
+  if (seletedSection === "section1") elevatorBtn.classList.add("hidden");
+  else elevatorBtn.classList.remove("hidden");
 };
 
 window.addEventListener("resize", function () {

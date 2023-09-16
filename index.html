@@ -10,6 +10,11 @@
   </head>
 
   <body class="font-sans font-thin">
+    <!-- TODO: elevator button -->
+    <div id="elevatorBtn" class="hidden fixed top-1/4 right-10">
+      <button class="metal radial plus">↑</button>
+    </div>
+
     <!-- section1: cover -->
     <div id="section1" class="h-screen relative text-white bg-[#2c2f36]">
       <div class="flex h-full">
@@ -18,10 +23,6 @@
           class="flex flex-row justify-center w-screen h-screen p-10"
         >
           <!-- canvas -->
-          <!-- <canvas
-            id="canvasDoors"
-            class="w-[800px] h-[600px] bg-black shadow-[3px_3px_5px_black]"
-          ></canvas> -->
           <canvas
             id="canvasDoors"
             class="w-[800px] bg-black shadow-[3px_3px_5px_black]"
@@ -71,11 +72,6 @@
 
     <!-- section2: about -->
     <div id="section2" class="h-screen py-14 px-6">
-      <!-- TODO: elevator button -->
-      <div class="top-10 right-10">
-        <button class="metal radial plus">↑</button>
-      </div>
-
       <div class="max-w-6xl mx-auto mb-12">
         <h2
           class="mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12"
