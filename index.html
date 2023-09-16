@@ -11,8 +11,19 @@
 
   <body class="font-sans font-thin">
     <!-- elevator button -->
-    <div id="elevatorBtn" class="fixed top-10 right-10">
-      <button class="metal radial plus" onclick="moveToTop()">탑승</button>
+    <div
+      id="elevatorBtn"
+      class="fixed top-10 right-10 border bg-[url('./images/panel.jpeg')] shadow-[3px_3px_5px_black]"
+    >
+      <div
+        class="h-16 m-2 bg-[#111] text-center flex justify-center align-center"
+      >
+        <canvas id="canvasLED2-1" width="24" height="40"></canvas>
+        <canvas id="canvasLED2-2" width="24" height="40"></canvas>
+      </div>
+      <button class="metal radial plus mx-6 m-4" onclick="moveToTop()">
+        탑승
+      </button>
     </div>
 
     <!-- section1: cover -->
@@ -33,36 +44,49 @@
             id="panel"
             class="flex flex-col ml-10 px-6 justify-evenly text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
           >
-            <!-- LCD -->
-            <div class="w-[150px] h-[77px] p-4 bg-black text-center">
-              <canvas id="canvasLCD" class="w-[24px] h-[40px]"></canvas>
+            <!-- LED -->
+            <div
+              class="flex justify-center w-[150px] h-[77px] p-4 bg-black text-center"
+            >
+              <canvas
+                id="canvasLED1-1"
+                width="24"
+                height="40"
+                class="mx-1"
+              ></canvas>
+              <canvas
+                id="canvasLED1-2"
+                width="24"
+                height="40"
+                class="mx-1"
+              ></canvas>
             </div>
 
             <!-- control button -->
             <div class="flex flex-col mx-auto">
               <input
                 type="button"
-                class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-300 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="L"
-                onclick="clickPanel('L')"
+                onclick="clickPanel(this.value)"
               />
               <input
                 type="button"
-                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-300 mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="B1"
-                onclick="clickPanel('B1')"
+                onclick="clickPanel(this.value)"
               />
               <input
                 type="button"
-                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-300 mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="B2"
-                onclick="clickPanel('B2')"
+                onclick="clickPanel(this.value)"
               />
               <input
                 type="button"
-                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-300 mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="B3"
-                onclick="clickPanel('B3')"
+                onclick="clickPanel(this.value)"
               />
             </div>
           </div>
