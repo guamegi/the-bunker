@@ -8,6 +8,7 @@ const DOOR_WIDTH = 150;
 let DOOR_HEIGHT = wrapper.clientHeight;
 const DOOR_OPEN_SPEED = 3000;
 
+let seletedSection = "";
 let leftDoorImg;
 let rightDoorImg;
 
@@ -22,20 +23,21 @@ const init = () => {
 const clickPanel = (stair) => {
   switch (stair) {
     case "L":
-      deleyScrollTo("section1");
+      seletedSection = "section1";
       break;
     case "B1":
-      deleyScrollTo("section2");
+      seletedSection = "section2";
       break;
     case "B2":
-      deleyScrollTo("section3");
+      seletedSection = "section3";
       break;
     case "B3":
-      deleyScrollTo("section4");
+      seletedSection = "section4";
       break;
     default:
-      deleyScrollTo("section1");
+      seletedSection = "section1";
   }
+  openDoors();
 };
 
 const makeDoors = () => {
@@ -78,8 +80,10 @@ const closeDoors = () => {
 };
 
 const moveDoors = () => {
-  console.log("move doors");
-  if (leftDoorX < -150) {
+  console.log("move doors", rightDoorX);
+  if (rightDoorX > DOOR_WIDTH * 2) {
+    moveToSection();
+    closeDoors();
     return;
   }
 
@@ -93,20 +97,13 @@ const moveDoors = () => {
   requestAnimationFrame(moveDoors);
 };
 
-/* utils */
-const deleyScrollTo = (containerByID) => {
-  openDoors();
+const moveToSection = () => {
+  const node = document.querySelector(`#${seletedSection}`);
 
-  setTimeout(() => {
-    const node = document.querySelector(`#${containerByID}`);
-
-    window.scrollTo({
-      top: node.offsetTop,
-      behavior: "instant", // ex: smooth
-    });
-
-    closeDoors();
-  }, DOOR_OPEN_SPEED);
+  window.scrollTo({
+    top: node.offsetTop,
+    behavior: "instant", // ex: smooth
+  });
 };
 
 window.addEventListener("resize", function () {
