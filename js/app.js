@@ -84,15 +84,7 @@ const utils = {
 
 class Numeral_LED_Matrix {
   constructor(number, options) {
-    this.ctx = options.canvas.getContext("2d");
-    this.reset();
-
-    const selected_num = supported_numbers[number];
-    this.ctx.save();
-    this.ctx.translate(4, 4);
-
-    this.convert_points_to_board_values(selected_num);
-    this.ctx.restore();
+    this.init(number, options);
   }
 
   init(number, options) {
