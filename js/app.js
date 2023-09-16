@@ -5,10 +5,10 @@ const canvasLED2_1 = document.querySelector("#canvasLED2_1");
 const canvasLED2_2 = document.querySelector("#canvasLED2_2");
 
 const ctxDoors = canvasDoors.getContext("2d");
-const ctxLED1_1 = canvasLED1_1.getContext("2d");
-const ctxLED1_2 = canvasLED1_2.getContext("2d");
-const ctxLED2_1 = canvasLED2_1.getContext("2d");
-const ctxLED2_2 = canvasLED2_2.getContext("2d");
+// const ctxLED1_1 = canvasLED1_1.getContext("2d");
+// const ctxLED1_2 = canvasLED1_2.getContext("2d");
+// const ctxLED2_1 = canvasLED2_1.getContext("2d");
+// const ctxLED2_2 = canvasLED2_2.getContext("2d");
 
 const wrapper = document.querySelector("#wrapper");
 const elevatorBtn = document.querySelector("#elevatorBtn");
@@ -241,8 +241,8 @@ const makeDoors = () => {
   leftDoorImg = new Image();
   rightDoorImg = new Image();
 
-  leftDoorImg.src = "../images/panel.jpeg";
-  rightDoorImg.src = "../images/panel.jpeg";
+  leftDoorImg.src = "/images/panel.jpeg";
+  rightDoorImg.src = "/images/panel.jpeg";
 
   ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
 
