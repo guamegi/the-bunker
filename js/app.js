@@ -241,8 +241,8 @@ const makeDoors = () => {
   leftDoorImg = new Image();
   rightDoorImg = new Image();
 
-  leftDoorImg.src = "/images/panel.jpeg";
-  rightDoorImg.src = "/images/panel.jpeg";
+  leftDoorImg.src = window.location.href + "images/panel.jpeg";
+  rightDoorImg.src = window.location.href + "images/panel.jpeg";
 
   ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
 
