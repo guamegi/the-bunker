@@ -35,7 +35,10 @@
     </div>
 
     <!-- section1: cover -->
-    <div id="section1" class="h-screen relative text-white bg-[#2c2f36]">
+    <div
+      id="section1"
+      class="h-screen relative text-white bg-[url('./images/panel.jpeg')] bg-cover"
+    >
       <div class="flex h-full">
         <div
           id="wrapper"
@@ -44,13 +47,13 @@
           <!-- canvas -->
           <canvas
             id="canvasDoors"
-            class="w-[800px] bg-black shadow-[3px_3px_5px_black]"
+            class="w-[800px] p-1 bg-black shadow-[0px_0px_5px_black]"
           ></canvas>
 
           <!-- panel -->
           <div
             id="panel"
-            class="flex flex-col ml-10 px-6 justify-evenly text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
+            class="flex flex-col ml-10 px-6 h-3/4 justify-evenly text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
           >
             <!-- LED -->
             <div class="flex justify-center w-[150px] h-[77px] p-4 bg-black">
