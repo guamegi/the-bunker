@@ -1,3 +1,8 @@
+#elevatorBtn {
+  font-size: 24px;
+  font-weight: 500;
+}
+
 .metal {
   position: relative;
   outline: none;
@@ -18,10 +23,10 @@
 }
 
 .radial.metal {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   line-height: 40px;
-  border-radius: 80px;
+  border-radius: 50px;
   background-image: -webkit-radial-gradient(
       50% 0%,
       8% 50%,

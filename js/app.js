@@ -106,13 +106,23 @@ const moveToSection = () => {
     behavior: "instant", // ex: smooth
   });
 
-  toggleElevatorBtn();
+  // toggleElevatorBtn();
 };
 
-const toggleElevatorBtn = () => {
-  if (seletedSection === "section1") elevatorBtn.classList.add("hidden");
-  else elevatorBtn.classList.remove("hidden");
+const moveToTop = () => {
+  seletedSection = "section1";
+  elevatorBtn.children[0].style.color = "#ff0000";
+
+  setTimeout(() => {
+    moveToSection();
+    elevatorBtn.children[0].style.color = "black";
+  }, 1000);
 };
+
+// const toggleElevatorBtn = () => {
+//   if (seletedSection === "section1") elevatorBtn.classList.add("hidden");
+//   else elevatorBtn.classList.remove("hidden");
+// };
 
 window.addEventListener("resize", function () {
   console.log("resize!", wrapper.clientHeight);

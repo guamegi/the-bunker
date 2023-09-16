@@ -10,9 +10,9 @@
   </head>
 
   <body class="font-sans font-thin">
-    <!-- TODO: elevator button -->
-    <div id="elevatorBtn" class="hidden fixed top-1/4 right-10">
-      <button class="metal radial plus">↑</button>
+    <!-- elevator button -->
+    <div id="elevatorBtn" class="fixed top-10 right-10">
+      <button class="metal radial plus" onclick="moveToTop()">탑승</button>
     </div>
 
     <!-- section1: cover -->
@@ -42,25 +42,25 @@
             <div class="flex flex-col mx-auto">
               <input
                 type="button"
-                class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="L"
                 onclick="clickPanel('L')"
               />
               <input
                 type="button"
-                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="B1"
                 onclick="clickPanel('B1')"
               />
               <input
                 type="button"
-                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="B2"
                 onclick="clickPanel('B2')"
               />
               <input
                 type="button"
-                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-sky-500 focus:text-sky-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="B3"
                 onclick="clickPanel('B3')"
               />
