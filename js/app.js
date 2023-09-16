@@ -1,10 +1,14 @@
 const canvasDoors = document.querySelector("#canvasDoors");
-const canvasLED1 = document.querySelector("#canvasLED1");
-const canvasLED2 = document.querySelector("#canvasLED2");
+const canvasLED1_1 = document.querySelector("#canvasLED1-1");
+const canvasLED1_2 = document.querySelector("#canvasLED1-2");
+const canvasLED2_1 = document.querySelector("#canvasLED2-1");
+const canvasLED2_2 = document.querySelector("#canvasLED2-2");
 
 const ctxDoors = canvasDoors.getContext("2d");
-const ctxLED1 = canvasLED1.getContext("2d");
-const ctxLED2 = canvasLED2.getContext("2d");
+const ctxLED1_1 = canvasLED1_1.getContext("2d");
+const ctxLED1_2 = canvasLED1_2.getContext("2d");
+const ctxLED2_1 = canvasLED2_1.getContext("2d");
+const ctxLED2_2 = canvasLED2_2.getContext("2d");
 
 const wrapper = document.querySelector("#wrapper");
 const elevatorBtn = document.querySelector("#elevatorBtn");
@@ -49,12 +53,16 @@ const two = {
   x: [0, 1, 2],
   y: [1, 2],
 };
-const three = {
-  x: [0, 1, 2],
-  y: [2, 3],
+const alphabetL = {
+  x: [2],
+  y: [0, 1],
+};
+const basement = {
+  x: [1],
+  y: [],
 };
 
-const supported_numbers = [empty, one, two, three];
+const supported_numbers = [empty, one, two, alphabetL, basement];
 
 const utils = {
   is_vertical(points) {
@@ -172,45 +180,52 @@ class Numeral_LED_Matrix {
   }
 }
 
-const led1 = new Numeral_LED_Matrix(0, { canvas: canvasLED1 });
-const led2 = new Numeral_LED_Matrix(0, { canvas: canvasLED2 });
+const led1_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_1 });
+const led1_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_2 });
+const led2_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_1 });
+const led2_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_2 });
 
 const changeNumeralLED = (stair) => {
-  let num;
+  let leftNum;
+  let rightNum;
   switch (stair) {
-    case 1:
-      num = 1;
+    case "L":
+      leftNum = 0;
+      rightNum = 3;
       break;
-    case 2:
-      num = 2;
+    case "-1":
+      leftNum = 4;
+      rightNum = 1;
       break;
-    case 3:
-      num = 3;
+    case "-2":
+      leftNum = 4;
+      rightNum = 2;
       break;
   }
 
-  led1.init(num, { canvas: canvasLED1 });
-  led2.init(num, { canvas: canvasLED2 });
+  led1_1.init(leftNum, { canvas: canvasLED1_1 });
+  led1_2.init(rightNum, { canvas: canvasLED1_2 });
+  led2_1.init(leftNum, { canvas: canvasLED2_1 });
+  led2_2.init(rightNum, { canvas: canvasLED2_2 });
 };
 //
 
 const init = () => {
   makeDoors();
   makeLED();
-  changeNumeralLED(1);
+  changeNumeralLED("L");
   moveToSection();
 };
 
-const clickPanel = (stairStr) => {
-  const stair = Number(stairStr);
+const clickPanel = (stair) => {
   switch (stair) {
-    case 1:
+    case "L":
       seletedSection = "section2";
       break;
-    case 2:
+    case "-1":
       seletedSection = "section3";
       break;
-    case 3:
+    case "-2":
       seletedSection = "section4";
       break;
   }
