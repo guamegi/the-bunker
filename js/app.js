@@ -64,11 +64,16 @@ const makeLCD = () => {
   console.log("make LCD");
 };
 
+let startTime;
 // open animation
 const openDoors = () => {
   console.log("open doors");
   if (leftDoorX !== 0) return;
-  requestAnimationFrame(moveDoors);
+
+  startTime = new Date().getTime();
+  setTimeout(() => {
+    requestAnimationFrame(moveDoors);
+  }, 100);
 };
 
 const closeDoors = () => {
@@ -80,13 +85,20 @@ const closeDoors = () => {
   rightDoorX = 151;
 };
 
+const DURATION = 100;
+// animate
 const moveDoors = () => {
-  console.log("move doors", rightDoorX);
+  // console.log("move doors", rightDoorX);
   if (rightDoorX > DOOR_WIDTH * 2) {
     moveToSection();
     closeDoors();
     return;
   }
+
+  // easeOut 효과
+  let time = new Date().getTime() - startTime;
+  leftDoorX -= DURATION / time;
+  rightDoorX += DURATION / time;
 
   ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
   ctxDoors.drawImage(leftDoorImg, leftDoorX, 0, DOOR_WIDTH, DOOR_HEIGHT);
