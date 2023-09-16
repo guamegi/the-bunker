@@ -82,103 +82,120 @@ const utils = {
   },
 };
 
-const Numeral_LED_Matrix = function (number, options) {
-  this.ctx = options.canvas.getContext("2d");
-  this.reset();
+class Numeral_LED_Matrix {
+  constructor(number, options) {
+    this.ctx = options.canvas.getContext("2d");
+    this.reset();
 
-  const selected_num = supported_numbers[number];
-  this.ctx.save();
-  this.ctx.translate(4, 4);
+    const selected_num = supported_numbers[number];
+    this.ctx.save();
+    this.ctx.translate(4, 4);
 
-  this.convert_points_to_board_values(selected_num);
-  this.ctx.restore();
-};
-
-Numeral_LED_Matrix.prototype.reset = function () {
-  this.ctx.clearRect(0, 0, 100, 100);
-};
-
-Numeral_LED_Matrix.prototype.draw_line = function (points, isOff) {
-  let values = this.positioning_values_on_board(points);
-
-  this.ctx.save();
-  this.ctx.beginPath();
-  this.ctx.lineCap = "round";
-  this.ctx.lineWidth = 4;
-  this.ctx.strokeStyle = "red";
-  if (isOff) this.ctx.globalAlpha = 0.2;
-  this.ctx.moveTo(values.from.x, values.from.y);
-  this.ctx.lineTo(values.to.x, values.to.y);
-  this.ctx.stroke();
-  this.ctx.closePath();
-  this.ctx.restore();
-};
-
-Numeral_LED_Matrix.prototype.convert_points_to_board_values = function (
-  points
-) {
-  var __ = this;
-  x_points = axis_x_points.map(function (val, index) {
-    return index;
-  });
-  y_points = axis_y_points.map(function (val, index) {
-    return index;
-  });
-
-  x_on = points.x;
-  x_off = utils.diff(x_points, x_on);
-
-  y_on = points.y;
-  y_off = utils.diff(y_points, y_on);
-
-  // draw off lines
-  x_off.forEach(function (selected_index) {
-    __.draw_line(axis_x_points[selected_index], true);
-  });
-
-  y_off.forEach(function (selected_index) {
-    __.draw_line(axis_y_points[selected_index], true);
-  });
-
-  // draw on lines
-  x_on.forEach(function (selected_index) {
-    __.draw_line(axis_x_points[selected_index]);
-  });
-
-  y_on.forEach(function (selected_index) {
-    __.draw_line(axis_y_points[selected_index]);
-  });
-};
-
-Numeral_LED_Matrix.prototype.positioning_values_on_board = function (points) {
-  const base = board.width / 4;
-
-  const from = {};
-  const to = {};
-
-  if (utils.is_vertical(points)) {
-    // from
-    from.x = points.from[0] * board.width;
-    from.y = points.from[1] * (board.height / 2) + base;
-
-    // to
-    to.x = points.to[0] * board.width;
-    to.y = points.to[1] * (board.height / 2) - base;
-  } else {
-    // from
-    from.x = points.from[0] * board.width + base;
-    from.y = points.from[1] * (board.height / 2);
-
-    // to
-    to.x = points.to[0] * board.width - base;
-    to.y = points.to[1] * (board.height / 2);
+    this.convert_points_to_board_values(selected_num);
+    this.ctx.restore();
   }
 
-  return {
-    from: from,
-    to: to,
-  };
-};
+  init(number, options) {
+    this.ctx = options.canvas.getContext("2d");
+    this.reset();
+
+    const selected_num = supported_numbers[number];
+    this.ctx.save();
+    this.ctx.translate(4, 4);
+
+    this.convert_points_to_board_values(selected_num);
+    this.ctx.restore();
+  }
+
+  reset() {
+    this.ctx.clearRect(0, 0, 100, 100);
+  }
+
+  draw_line(points, isOff) {
+    let values = this.positioning_values_on_board(points);
+
+    this.ctx.save();
+    this.ctx.beginPath();
+    this.ctx.lineCap = "round";
+    this.ctx.lineWidth = 4;
+    this.ctx.strokeStyle = "red";
+    if (isOff) this.ctx.globalAlpha = 0.2;
+    this.ctx.moveTo(values.from.x, values.from.y);
+    this.ctx.lineTo(values.to.x, values.to.y);
+    this.ctx.stroke();
+    this.ctx.closePath();
+    this.ctx.restore();
+  }
+
+  convert_points_to_board_values(points) {
+    var __ = this;
+    this.x_points = axis_x_points.map(function (val, index) {
+      return index;
+    });
+    this.y_points = axis_y_points.map(function (val, index) {
+      return index;
+    });
+
+    this.x_on = points.x;
+    this.x_off = utils.diff(this.x_points, this.x_on);
+
+    this.y_on = points.y;
+    this.y_off = utils.diff(this.y_points, this.y_on);
+
+    // draw off lines
+    this.x_off.forEach(function (selected_index) {
+      __.draw_line(axis_x_points[selected_index], true);
+    });
+
+    this.y_off.forEach(function (selected_index) {
+      __.draw_line(axis_y_points[selected_index], true);
+    });
+
+    // draw on lines
+    this.x_on.forEach(function (selected_index) {
+      __.draw_line(axis_x_points[selected_index]);
+    });
+
+    this.y_on.forEach(function (selected_index) {
+      __.draw_line(axis_y_points[selected_index]);
+    });
+  }
+
+  positioning_values_on_board(points) {
+    const base = board.width / 4;
+
+    const from = {};
+    const to = {};
+
+    if (utils.is_vertical(points)) {
+      // from
+      from.x = points.from[0] * board.width;
+      from.y = points.from[1] * (board.height / 2) + base;
+
+      // to
+      to.x = points.to[0] * board.width;
+      to.y = points.to[1] * (board.height / 2) - base;
+    } else {
+      // from
+      from.x = points.from[0] * board.width + base;
+      from.y = points.from[1] * (board.height / 2);
+
+      // to
+      to.x = points.to[0] * board.width - base;
+      to.y = points.to[1] * (board.height / 2);
+    }
+
+    return {
+      from: from,
+      to: to,
+    };
+  }
+}
+
+const led1_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_1 });
+const led1_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_2 });
+const led2_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_1 });
+const led2_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_2 });
 
 const changeNumeralLED = (stair) => {
   let leftNum;
@@ -202,10 +219,10 @@ const changeNumeralLED = (stair) => {
       break;
   }
 
-  new Numeral_LED_Matrix(leftNum, { canvas: canvasLED1_1 });
-  new Numeral_LED_Matrix(rightNum, { canvas: canvasLED1_2 });
-  new Numeral_LED_Matrix(leftNum, { canvas: canvasLED2_1 });
-  new Numeral_LED_Matrix(rightNum, { canvas: canvasLED2_2 });
+  led1_1.init(leftNum, { canvas: canvasLED1_1 });
+  led1_2.init(rightNum, { canvas: canvasLED1_2 });
+  led2_1.init(leftNum, { canvas: canvasLED2_1 });
+  led2_2.init(rightNum, { canvas: canvasLED2_2 });
 };
 //
 
