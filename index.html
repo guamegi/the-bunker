@@ -15,11 +15,19 @@
       id="elevatorBtn"
       class="fixed top-10 right-10 border bg-[url('./images/panel.jpeg')] shadow-[3px_3px_5px_black]"
     >
-      <div
-        class="h-16 m-2 bg-[#111] text-center flex justify-center align-center"
-      >
-        <canvas id="canvasLED2-1" width="24" height="40"></canvas>
-        <canvas id="canvasLED2-2" width="24" height="40"></canvas>
+      <div class="flex justify-center w-[108px] h-16 p-4 bg-black">
+        <canvas
+          id="canvasLED2-1"
+          width="24"
+          height="40"
+          class="mx-0.5"
+        ></canvas>
+        <canvas
+          id="canvasLED2-2"
+          width="24"
+          height="40"
+          class="mx-0.5"
+        ></canvas>
       </div>
       <button class="metal radial plus mx-6 m-4" onclick="moveToTop()">
         탑승
@@ -45,20 +53,18 @@
             class="flex flex-col ml-10 px-6 justify-evenly text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
           >
             <!-- LED -->
-            <div
-              class="flex justify-center w-[150px] h-[77px] p-4 bg-black text-center"
-            >
+            <div class="flex justify-center w-[150px] h-[77px] p-4 bg-black">
               <canvas
                 id="canvasLED1-1"
                 width="24"
                 height="40"
-                class="mx-1"
+                class="mx-0.5"
               ></canvas>
               <canvas
                 id="canvasLED1-2"
                 width="24"
                 height="40"
-                class="mx-1"
+                class="mx-0.5"
               ></canvas>
             </div>
 
