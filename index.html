@@ -6,27 +6,31 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>The Bunker</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <!-- <body class="font-sans font-thin overflow-hidden"> -->
+
   <body class="font-sans font-thin">
     <!-- section1: cover -->
     <div id="section1" class="h-screen relative text-white bg-[#2c2f36]">
-      <!-- <img
-        src="./images/elevator.jpg"
-        class="absolute top-0 left-0 w-full h-full object-cover"
-      /> -->
-
       <div class="flex h-full">
-        <div class="flex flex-row m-auto">
+        <div
+          id="wrapper"
+          class="flex flex-row justify-center w-screen h-screen p-10"
+        >
           <!-- canvas -->
+          <!-- <canvas
+            id="canvasDoors"
+            class="w-[800px] h-[600px] bg-black shadow-[3px_3px_5px_black]"
+          ></canvas> -->
           <canvas
             id="canvasDoors"
-            class="w-[800px] h-[600px] bg-black"
+            class="w-[800px] bg-black shadow-[3px_3px_5px_black]"
           ></canvas>
 
           <!-- panel -->
           <div
-            class="flex flex-col ml-10 px-6 justify-evenly text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] shadow-[3px_3px_5px_black]"
+            id="panel"
+            class="flex flex-col ml-10 px-6 justify-evenly text-white font-normal border border-gray-700 bg-[url('./images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
           >
             <!-- LCD -->
             <div class="w-[150px] h-[77px] p-4 bg-black text-center">
@@ -61,15 +65,17 @@
               />
             </div>
           </div>
-          <!-- <div>
-          <h1 class="text-2xl md:text-6xl">Please control the right panel!</h1>
-        </div> -->
         </div>
       </div>
     </div>
 
     <!-- section2: about -->
     <div id="section2" class="h-screen py-14 px-6">
+      <!-- TODO: elevator button -->
+      <div class="top-10 right-10">
+        <button class="metal radial plus">↑</button>
+      </div>
+
       <div class="max-w-6xl mx-auto mb-12">
         <h2
           class="mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12"

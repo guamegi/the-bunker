@@ -1,17 +1,18 @@
-let leftDoorImg;
-let rightDoorImg;
-
-const DOOR_WIDTH = 150;
-const DOOR_HEIGHT = 200;
-const DOOR_OPEN_SPEED = 3000;
-
-let leftDoorX = 0;
-let rightDoorX = 151;
-
 const canvasDoors = document.querySelector("#canvasDoors");
 const canvasLCD = document.querySelector("#canvasLCD");
 const ctxDoors = canvasDoors.getContext("2d");
 const ctxLCD = canvasLCD.getContext("2d");
+const wrapper = document.querySelector("#wrapper");
+
+const DOOR_WIDTH = 150;
+let DOOR_HEIGHT = wrapper.clientHeight;
+const DOOR_OPEN_SPEED = 3000;
+
+let leftDoorImg;
+let rightDoorImg;
+
+let leftDoorX = 0;
+let rightDoorX = 151;
 
 const init = () => {
   makeDoors();
@@ -39,6 +40,8 @@ const clickPanel = (stair) => {
 
 const makeDoors = () => {
   console.log("make doors");
+  canvasDoors.height = wrapper.clientHeight;
+
   leftDoorImg = new Image();
   rightDoorImg = new Image();
 
@@ -54,6 +57,7 @@ const makeDoors = () => {
     ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
   };
 };
+
 const makeLCD = () => {
   console.log("make LCD");
 };
@@ -104,5 +108,11 @@ const deleyScrollTo = (containerByID) => {
     closeDoors();
   }, DOOR_OPEN_SPEED);
 };
+
+window.addEventListener("resize", function () {
+  console.log("resize!", wrapper.clientHeight);
+  DOOR_HEIGHT = wrapper.clientHeight;
+  makeDoors();
+});
 
 init();
