@@ -1,8 +1,8 @@
 const canvasDoors = document.querySelector("#canvasDoors");
-const canvasLED1_1 = document.querySelector("#canvasLED1-1");
-const canvasLED1_2 = document.querySelector("#canvasLED1-2");
-const canvasLED2_1 = document.querySelector("#canvasLED2-1");
-const canvasLED2_2 = document.querySelector("#canvasLED2-2");
+const canvasLED1_1 = document.querySelector("#canvasLED1_1");
+const canvasLED1_2 = document.querySelector("#canvasLED1_2");
+const canvasLED2_1 = document.querySelector("#canvasLED2_1");
+const canvasLED2_2 = document.querySelector("#canvasLED2_2");
 
 const ctxDoors = canvasDoors.getContext("2d");
 const ctxLED1_1 = canvasLED1_1.getContext("2d");
