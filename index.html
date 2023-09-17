@@ -7,14 +7,14 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>The Bunker</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
 
   <body class="font-sans font-thin overflow-hidden">
     <!-- elevator button(outter) -->
     <div
       id="elevatorBtn"
-      class="fixed top-10 right-10 bg-[url('./images/panel.jpeg')] shadow-[3px_3px_5px_black]"
+      class="fixed top-10 right-10 bg-[url('./src/images/panel.jpeg')] shadow-[3px_3px_5px_black]"
     >
       <div class="flex justify-center w-[108px] h-16 p-3 mt-3 bg-black">
         <canvas
@@ -41,7 +41,7 @@
     <!-- section1: cover -->
     <div
       id="section1"
-      class="h-screen relative text-white bg-[url('./images/panel.jpeg')] bg-cover"
+      class="h-screen relative text-white bg-[url('./src/images/panel.jpeg')] bg-cover"
     >
       <div class="flex h-full">
         <div
@@ -57,7 +57,7 @@
           <!-- panel -->
           <div
             id="panel"
-            class="flex flex-col ml-10 px-6 h-3/4 justify-evenly text-white font-normal bg-[url('./images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
+            class="flex flex-col ml-10 px-6 h-3/4 justify-evenly text-white font-normal bg-[url('./src/images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
           >
             <!-- LED -->
             <div class="flex justify-center w-[150px] h-[77px] p-4 bg-black">
@@ -159,23 +159,23 @@
         <div class="w-full md:w-1/2 p-4 pl-10 text-sm">
           <div class="my-3">
             <img
-              src="./images/projects/myImage.png"
+              src="./src/images/projects/myImage.png"
               class="block w-full h-auto px-32 mb-12"
             />
           </div>
 
           <div class="flex items-center pl-16">
-            <img src="./images/location.png" width="34" class="mx-3 p-1" />
+            <img src="./src/images/location.png" width="34" class="mx-3 p-1" />
             <p class="font-medium w-16">주소</p>
             <p>경기도 성남</p>
           </div>
           <div class="flex items-center pl-16">
-            <img src="./images/email.png" width="34" class="mx-3 p-1" />
+            <img src="./src/images/email.png" width="34" class="mx-3 p-1" />
             <p class="font-medium w-16">이메일</p>
             <a href="mailto:minhappp@naver.com">minhappp@naver.com</a>
           </div>
           <div class="flex items-center pl-16">
-            <img src="./images/github.png" width="34" class="mx-3" />
+            <img src="./src/images/github.png" width="34" class="mx-3" />
             <p class="font-medium w-16">깃허브</p>
             <a href="https://github.com/guamegi">https://github.com/guamegi</a>
           </div>
@@ -241,7 +241,7 @@
               <!-- <div class="wow fadeIn"> -->
               <div class="w-full md:w-1/2 p-4">
                 <div
-                  class="border h-80 md:h-full bg-[url('./images/projects/chartBook.png')] bg-contain bg-center bg-no-repeat"
+                  class="border h-80 md:h-full bg-[url('./src/images/projects/chartBook.png')] bg-contain bg-center bg-no-repeat"
                 ></div>
               </div>
               <!-- 설명, 스택 -->
@@ -324,6 +324,8 @@
       </div>
     </div>
 
-    <script type="module" src="js/main.js"></script>
+    <!-- TODO: 개발 완료 후 dist 적용 -->
+    <!-- <script type="module" src="./dist/main.js"></script> -->
+    <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>
