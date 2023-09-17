@@ -161,7 +161,7 @@ const moveToTop = () => {
   setTimeout(() => {
     moveToSection();
     elevatorBtn.children[1].style.color = "black";
-  }, 1000);
+  }, 500);
 };
 
 window.addEventListener("resize", function () {
