@@ -212,27 +212,112 @@
 
     <!-- section4: projects -->
     <div id="section4" class="h-screen py-14 px-6 overflow-auto">
-      <div class="max-w-6xl mx-auto mb-12">
-        <h2
-          class="mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12"
-        >
-          Projects
-        </h2>
+      <div class="mx-auto max-w-[1000px]">
+        <div class="max-w-6xl mx-auto mb-12">
+          <h2
+            class="mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12"
+          >
+            Projects
+          </h2>
+          <p
+            class="mb-6 text-gray-600 mx-auto max-w-lg text-center leading-relaxed"
+          >
+            현재 진행 중이거나 개발 완료한 프로젝트들입니다.
+          </p>
+        </div>
 
-        <p
-          class="mb-6 text-gray-600 mx-auto max-w-lg text-center leading-relaxed"
+        <div class="flex flex-col">
+          <div
+            class="rounded overflow-hidden shadow-[0px_8px_16px_gray] py-5 my-5"
+            key=""
+          >
+            <div class="mb-4">
+              <h3 class="text-2xl py-4 font-medium text-center">ChartBook</h3>
+              <div class="text-sm py-2 font-medium text-gray-400 text-center">
+                2023.09
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-evenly px-4">
+              <!-- <div class="wow fadeIn"> -->
+              <div class="w-full md:w-1/2 p-4">
+                <div
+                  class="border h-full bg-[url('./images/projects/chartBook.png')] bg-contain bg-center bg-no-repeat"
+                ></div>
+              </div>
+              <!-- 설명, 스택 -->
+              <div class="w-full md:w-1/2 p-4">
+                <p>
+                  내가 보유한 주식과 가상화폐의 투자 자산 현황을 실시간으로
+                  모니터링. 총 자산 현황을 파악하기 위해 각각의 앱에 들어가서
+                  계산해야 하는 불편함이 계기가 되어 개발.
+                </p>
+                <button
+                  class="px-8 py-3 my-5 bg-gray-800 text-white font-normal"
+                  onClick=""
+                >
+                  상세 보기
+                </button>
+                <hr />
+                <div class="grid grid-cols-1 grid-rows-4 p-5 text-sm">
+                  <div class="flex">
+                    <div class="w-full md:w-1/3 font-normal text-center">
+                      주요 기능
+                    </div>
+                    <div class="w-full md:w-2/3">
+                      가상화폐 웹소켓 실시간 시세, 주식 시세 크롤링, chart
+                      라이브러리 활용 차트생성
+                    </div>
+                  </div>
+                  <div class="flex">
+                    <div class="w-full md:w-1/3 font-normal text-center">
+                      GitHub
+                    </div>
+                    <div class="w-full md:w-2/3">
+                      <a
+                        href="https://github.com/guamegi/typing-exam"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        https://github.com/guamegi/typing-exam
+                      </a>
+                    </div>
+                  </div>
+                  <div class="flex">
+                    <div class="w-full md:w-1/3 font-normal text-center">
+                      URL
+                    </div>
+                    <div class="w-full md:w-2/3">
+                      <a
+                        href="{project.url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        https://guamegi.github.io/typing-exam/
+                      </a>
+                    </div>
+                  </div>
+                  <div class="flex">
+                    <div class="w-full md:w-1/3 font-normal text-center">
+                      기술 스택
+                    </div>
+                    <div class="w-full md:w-2/3">
+                      React.js, Bootstrap, Websocket, Chart.js,
+                      Tradingview-lightweight, AWS-ELB, Heroku, zustand
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- footer -->
+        <div
+          class="bg-gray-900 text-gray-100 text-center flex justify-center px-6 py-12"
         >
-          현재 진행 중이거나 개발 완료한 프로젝트들입니다.
-        </p>
-      </div>
-
-      <!-- footer -->
-      <div
-        class="bg-gray-900 text-gray-100 text-center flex justify-center px-6 py-12"
-      >
-        <a href="#" class="mx-6 hover:text-gray-600">123 Address</a>
-        <a href="#" class="mx-6 hover:text-gray-600">0800 123 456</a>
-        <a href="#" class="mx-6 hover:text-gray-600">my@email.com</a>
+          <a href="#" class="mx-6 hover:text-gray-600">123 Address</a>
+          <a href="#" class="mx-6 hover:text-gray-600">0800 123 456</a>
+          <a href="#" class="mx-6 hover:text-gray-600">my@email.com</a>
+        </div>
       </div>
     </div>
 
