@@ -17,7 +17,9 @@ export default class Project {
             key=""
           >
             <div class="mb-4">
-              <h3 class="text-2xl py-4 font-medium text-center">${this.name}</h3>
+              <h3 class="text-2xl py-4 font-medium text-center">${
+                this.name
+              }</h3>
               <div class="text-sm py-2 font-medium text-gray-400 text-center">
               ${this.period}
               </div>
@@ -26,7 +28,9 @@ export default class Project {
               <!-- <div class="wow fadeIn"> -->
               <div class="w-full md:w-1/2 p-4">
                 <div
-                  class="border h-80 md:h-full bg-[url(${this.images[0]})] bg-contain bg-center bg-no-repeat"
+                  class="border h-80 md:h-full bg-[url(${
+                    this.images[0]
+                  })] bg-contain bg-center bg-no-repeat"
                 ></div>
               </div>
               <!-- 설명, 스택 -->
@@ -44,8 +48,8 @@ export default class Project {
                 </div>
 
                 <hr />
-                <div class="grid grid-cols-1 grid-rows-4 p-5 text-sm">
-                  <div class="flex">
+                <div class="flex flex-col p-5 text-sm">
+                  <div class="flex py-2">
                     <div class="w-1/3 md:w-1/3 font-normal text-center">
                       주요 기능
                     </div>
@@ -53,21 +57,27 @@ export default class Project {
                     ${this.func}
                     </div>
                   </div>
-                  <div class="flex">
-                    <div class="w-1/3 md:w-1/3 font-normal text-center">
-                      GitHub
-                    </div>
-                    <div class="w-2/3 md:w-2/3">
-                      <a
-                        href="${this.github}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        ${this.github}
-                      </a>
-                    </div>
-                  </div>
-                  <div class="flex">
+                  ${
+                    this.github
+                      ? `<div class="flex py-2">
+                        <div class="w-1/3 md:w-1/3 font-normal text-center">
+                          GitHub
+                        </div>
+                        <div class="w-2/3 md:w-2/3">
+                          <a
+                            href="${this.github}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            ${this.github}
+                          </a>
+                        </div>
+                      </div>`
+                      : ""
+                  }
+                  ${
+                    this.url
+                      ? `<div class="flex py-2">
                     <div class="w-1/3 md:w-1/3 font-normal text-center">
                       URL
                     </div>
@@ -80,8 +90,11 @@ export default class Project {
                       ${this.url}
                       </a>
                     </div>
-                  </div>
-                  <div class="flex">
+                  </div>`
+                      : ""
+                  }
+                 
+                  <div class="flex py-2">
                     <div class="w-1/3 md:w-1/3 font-normal text-center">
                       기술 스택
                     </div>
