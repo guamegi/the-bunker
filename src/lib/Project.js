@@ -50,7 +50,7 @@ export default class Project {
                 <hr />
                 <div class="flex flex-col p-5 text-sm">
                   <div class="flex py-2">
-                    <div class="w-1/3 md:w-1/3 font-normal text-center">
+                    <div class="w-1/3 md:w-1/3 font-normal pl-2">
                       주요 기능
                     </div>
                     <div class="w-2/3 md:w-2/3">
@@ -60,7 +60,7 @@ export default class Project {
                   ${
                     this.github
                       ? `<div class="flex py-2">
-                        <div class="w-1/3 md:w-1/3 font-normal text-center">
+                        <div class="w-1/3 md:w-1/3 font-normal pl-2">
                           GitHub
                         </div>
                         <div class="w-2/3 md:w-2/3">
@@ -78,7 +78,7 @@ export default class Project {
                   ${
                     this.url
                       ? `<div class="flex py-2">
-                    <div class="w-1/3 md:w-1/3 font-normal text-center">
+                    <div class="w-1/3 md:w-1/3 font-normal pl-2">
                       URL
                     </div>
                     <div class="w-2/3 md:w-2/3">
@@ -95,7 +95,7 @@ export default class Project {
                   }
                  
                   <div class="flex py-2">
-                    <div class="w-1/3 md:w-1/3 font-normal text-center">
+                    <div class="w-1/3 md:w-1/3 font-normal pl-2">
                       기술 스택
                     </div>
                     <div class="w-2/3 md:w-2/3">
