@@ -95,6 +95,6 @@ export default class Project {
           </div>
     `;
 
-    document.querySelector("#projects").insertAdjacentHTML("afterbegin", el);
+    document.querySelector("#projects").insertAdjacentHTML("beforeend", el);
   }
 }
