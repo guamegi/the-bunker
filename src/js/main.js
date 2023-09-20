@@ -64,7 +64,6 @@ const changeNumeralLED = (stair) => {
 
 const init = () => {
   makeDoors();
-  makeLED();
   changeNumeralLED("L");
   moveToSection();
 };
@@ -104,10 +103,6 @@ const makeDoors = () => {
   rightDoorImg.onload = () => {
     ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
   };
-};
-
-const makeLED = () => {
-  console.log("make LED");
 };
 
 let startTime;
