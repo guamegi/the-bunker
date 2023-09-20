@@ -1,6 +1,8 @@
 import Numeral_LED_Matrix from "../lib/Numeral_LED_Matrix.js";
 import Project from "../lib/Project.js";
+import SkillBars from "../lib/Skillbars.js";
 import { projects } from "../data/projects.js";
+import { skills } from "../data/skills.js";
 
 const canvasDoors = document.querySelector("#canvasDoors");
 const canvasLED1_1 = document.querySelector("#canvasLED1_1");
@@ -28,6 +30,9 @@ const led1_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_2 });
 const led2_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_1 });
 const led2_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_2 });
 
+skills.forEach((obj, idx, all) => {
+  new SkillBars(obj).createEl(idx, all);
+});
 projects.forEach((obj) => {
   new Project(obj).createEl();
 });
