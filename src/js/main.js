@@ -162,7 +162,7 @@ const closeDoors = () => {
 };
 
 // animate
-const DURATION = 100;
+const DURATION = 400;
 const moveDoors = () => {
   // console.log("move doors", rightDoorX);
   if (rightDoorX > DOOR_WIDTH * 2) {
