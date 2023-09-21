@@ -4,7 +4,7 @@ export const projects = [
     name: "The Bunker",
     period: "2023.09 ~ 현재",
     images: ["src/images/projects/theBunker.png"],
-    desc: "산책하며 새로운 My Portfolio 사이트를 생각하던 중, 건물 내 엘리베이터에 영감을 받아 기존 밋밋했던 스크롤 이동 방식을 Canvas를 이용하여 층 이동을 구현해보면 재미있을 것 같아서 작업.",
+    desc: "새로운 My Portfolio 사이트를 구상하던 중, 건물 내 엘리베이터에 영감을 받아 기존 밋밋했던 스크롤 이동 방식을 Canvas를 이용하여 층 이동을 구현해보면 재미있을 것 같아서 작업.",
     func: "엘리베이터 내 층 버튼 누르면 LED 층 수가 바뀌며 문 열리는 애니메이션, 해당 층으로 이동하여 해당 섹션을 확인, 해당 섹션에서 엘리베이터로 다시 탑승",
     github: "https://github.com/guamegi/the-bunker",
     url: "https://guamegi.github.io/the-bunker/",
