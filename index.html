@@ -7,6 +7,11 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>The Bunker</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="./src/style.css" />
   </head>
 
@@ -233,10 +238,64 @@
           <a href="mailto:minhappp@naver.com">e-mail: minhappp@naver.com</a>
         </div>
       </div>
+      <!-- Slider main container -->
+      <!-- <div class="modalWrapper"> -->
+      <div class="modalWrapper hidden">
+        <div class="mySwiper swiper">
+          <button
+            type="button"
+            class="absolute top-0 right-0 rounded-md p-2 z-10 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            onclick="closeModal()"
+          >
+            <svg
+              class="h-14 w-14"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            ...
+          </div>
+
+          <!-- pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
     </div>
 
     <!-- TODO: 개발 완료 후 dist 적용 -->
     <!-- <script type="module" src="./dist/main.js"></script> -->
     <script type="module" src="./src/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        initialSlide: 0,
+      });
+    </script>
   </body>
 </html>

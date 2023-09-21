@@ -37,6 +37,40 @@ projects.forEach((obj) => {
   new Project(obj).createEl();
 });
 
+const init = () => {
+  makeDoors();
+  changeNumeralLED("L");
+  moveToSection();
+};
+
+const modal = document.querySelector(".modalWrapper");
+const swiperWrapper = document.querySelector(".swiper-wrapper");
+
+const showModal = (images) => {
+  console.log("show modal");
+  modal.classList.remove("hidden");
+  // swiper-wrapper children 제거
+  swiperWrapper.innerHTML = "";
+
+  // 경로 추출
+  const imagesArr = images.split(",");
+
+  let el = "";
+  // wiper-wrapper에 image slice 삽입
+  imagesArr.forEach((image) => {
+    el += `<div class="swiper-slide">
+            <img src='${image}' />
+          </div>`;
+  });
+  swiperWrapper.insertAdjacentHTML("beforeend", el);
+};
+
+const closeModal = () => {
+  console.log("close");
+  modal.classList.add("hidden");
+  swiper.activeIndex = 0;
+};
+
 const changeNumeralLED = (stair) => {
   let leftNum;
   let rightNum;
@@ -59,13 +93,6 @@ const changeNumeralLED = (stair) => {
   led1_2.init(rightNum, { canvas: canvasLED1_2 });
   led2_1.init(leftNum, { canvas: canvasLED2_1 });
   led2_2.init(rightNum, { canvas: canvasLED2_2 });
-};
-//
-
-const init = () => {
-  makeDoors();
-  changeNumeralLED("L");
-  moveToSection();
 };
 
 const clickPanel = (stair) => {
@@ -188,6 +215,6 @@ init();
 
 // module 방식이라 global로 보내야 함
 window.moveToTop = moveToTop;
-window.clickPanel = (stair) => {
-  clickPanel(stair);
-};
+window.showModal = showModal;
+window.closeModal = closeModal;
+window.clickPanel = clickPanel;

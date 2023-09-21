@@ -25,7 +25,6 @@ export default class Project {
               </div>
             </div>
             <div class="flex flex-col md:flex-row justify-evenly px-4">
-              <!-- <div class="wow fadeIn"> -->
               <div class="w-full md:w-1/2 p-4">
                 <div
                   class="border h-80 md:h-full bg-[url(${
@@ -41,7 +40,7 @@ export default class Project {
                 <div class="flex justify-end">
                   <button
                     class="px-8 py-3 my-5 bg-gray-800 text-white text-sm font-normal grid content-center"
-                    onClick=""
+                    onClick="showModal('${this.images}')"
                   >
                     상세 보기
                   </button>
