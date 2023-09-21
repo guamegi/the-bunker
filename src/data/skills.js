@@ -1,57 +1,59 @@
 export const skills = [
   {
     category: "Front-End",
-    name: "HTML5 / CSS3",
-    percentage: 85,
-    color: "purple",
-  },
-  {
-    category: "Front-End",
-    name: "Javascript",
-    percentage: 85,
-    color: "purple",
+    name: "HTML5 / CSS3 / Javascript",
+    percentage: 90,
+    color: "blue",
   },
   {
     category: "Front-End",
     name: "JQuery",
     percentage: 90,
-    color: "purple",
+    color: "blue",
   },
   {
     category: "Front-End",
-    name: "ReactJS / NextJS / VueJs",
+    name: "ReactJS",
     percentage: 85,
-    color: "purple",
+    color: "blue",
+  },
+
+  {
+    category: "Front-End",
+    name: "NextJS",
+    percentage: 80,
+    color: "blue",
+  },
+
+  {
+    category: "Front-End",
+    name: "VueJs",
+    percentage: 80,
+    color: "blue",
   },
   {
     category: "Front-End",
     name: "ContextApi / Redux / Zustand",
     percentage: 80,
-    color: "purple",
-  },
-  {
-    category: "Front-End",
-    name: "Wordpress",
-    percentage: 75,
-    color: "purple",
+    color: "blue",
   },
   {
     category: "Front-End",
     name: "Bootstrap / Tailwindcss / SCSS",
-    percentage: 80,
-    color: "purple",
+    percentage: 85,
+    color: "blue",
   },
   {
     category: "Back-End",
     name: "ExpressJS",
     percentage: 75,
-    color: "blue",
+    color: "purple",
   },
   {
     category: "Back-End",
     name: "MySQL",
     percentage: 70,
-    color: "blue",
+    color: "purple",
   },
   {
     category: "Mobile App",
@@ -62,7 +64,7 @@ export const skills = [
   {
     category: "Mobile App",
     name: "React Native",
-    percentage: 75,
+    percentage: 85,
     color: "red",
   },
   {
@@ -76,6 +78,18 @@ export const skills = [
     name: "SVN",
     percentage: 75,
     color: "green",
+  },
+  {
+    category: "Communication",
+    name: "Figma",
+    percentage: 80,
+    color: "yellow",
+  },
+  {
+    category: "Communication",
+    name: "Swagger",
+    percentage: 85,
+    color: "yellow",
   },
   {
     category: "Communication",
