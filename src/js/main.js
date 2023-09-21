@@ -66,7 +66,7 @@ const showModal = (images) => {
 };
 
 const closeModal = () => {
-  console.log("close");
+  console.log("close", swiper);
   modal.classList.add("hidden");
   swiper.activeIndex = 0;
 };
