@@ -1,6 +1,6 @@
 import Numeral_LED_Matrix from "../lib/Numeral_LED_Matrix.js";
 import Project from "../lib/Project.js";
-import SkillBars from "../lib/Skillbars.js";
+import SkillBars from "../lib/SkillBars.js";
 import { projects } from "../data/projects.js";
 import { skills } from "../data/skills.js";
 
