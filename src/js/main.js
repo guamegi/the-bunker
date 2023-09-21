@@ -94,12 +94,13 @@ const makeDoors = () => {
 
   // github 주소 pathname 문제로 분기 추가
   const href = window.location.href;
+  const panelImagePath = "/src/images/panel.jpeg";
   if (href.charAt(href.length - 1) === "/") {
-    leftDoorImg.src = window.location.href + "/src/images/panel.jpeg";
-    rightDoorImg.src = window.location.href + "/src/images/panel.jpeg";
+    leftDoorImg.src = window.location.href + panelImagePath;
+    rightDoorImg.src = window.location.href + panelImagePath;
   } else {
-    leftDoorImg.src = window.location.origin + "/src/images/panel.jpeg";
-    rightDoorImg.src = window.location.origin + "/src/images/panel.jpeg";
+    leftDoorImg.src = window.location.origin + panelImagePath;
+    rightDoorImg.src = window.location.origin + panelImagePath;
   }
 
   ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
