@@ -47,7 +47,7 @@ const modal = document.querySelector(".modalWrapper");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 
 const showModal = (images) => {
-  console.log("show modal");
+  // console.log("show modal");
   modal.classList.remove("hidden");
   // swiper-wrapper children 제거
   swiperWrapper.innerHTML = "";
@@ -66,7 +66,7 @@ const showModal = (images) => {
 };
 
 const closeModal = () => {
-  console.log("close", swiper);
+  // console.log("close", swiper);
   modal.classList.add("hidden");
   swiper.activeIndex = 0;
 };
@@ -113,7 +113,7 @@ const clickPanel = (stair) => {
 };
 
 const makeDoors = () => {
-  console.log("make doors");
+  // console.log("make doors");
   canvasDoors.height = wrapper.clientHeight;
 
   leftDoorImg = new Image();
@@ -143,7 +143,7 @@ const makeDoors = () => {
 let startTime;
 // open animation
 const openDoors = () => {
-  console.log("open doors");
+  // console.log("open doors");
   if (leftDoorX !== 0) return;
 
   startTime = new Date().getTime();
@@ -153,7 +153,7 @@ const openDoors = () => {
 };
 
 const closeDoors = () => {
-  console.log("close doors");
+  // console.log("close doors");
   ctxDoors.drawImage(leftDoorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
   ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
 
@@ -206,7 +206,7 @@ const moveToTop = () => {
 };
 
 window.addEventListener("resize", function () {
-  console.log("resize!", wrapper.clientHeight);
+  // console.log("resize!", wrapper.clientHeight);
   DOOR_HEIGHT = wrapper.clientHeight;
   makeDoors();
 });

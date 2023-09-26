@@ -2,7 +2,7 @@ export const projects = [
   {
     no: 9,
     name: "The Bunker",
-    period: "2023.09 ~ 현재",
+    period: "2023.09",
     images: [
       "src/images/projects/theBunker/1.png",
       "src/images/projects/theBunker/2.png",
