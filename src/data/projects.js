@@ -124,22 +124,22 @@ export const projects = [
     stack:
       "React.js, Bootstrap, Websocket, Chart.js, Tradingview-lightweight, AWS-ELB, Heroku, zustand",
   },
-  {
-    no: 1,
-    name: "Dynamic Chart Sample",
-    period: "2019.07 ~ 12, 2022.07 ~",
-    images: [
-      "src/images/projects/dynamicChart/1.png",
-      "src/images/projects/dynamicChart/2.png",
-    ],
-    desc: `실시간 차트를 이용한 트레이딩 플랫폼을 검토하기 위해 
-    2인이 Canvas를 사용하여 프로토타입 개발. 임시 중단된 legacy 활용 검토 중.
-    샘플 데이터를 생성해 동적 차트 생성과 서큘러 큐
-    방식의 데이터 구조 활용.
-    `,
-    func: "샘플 데이터를 이용한 동적 차트 생성 및 차트 설정",
-    github: "https://github.com/guamegi/dynamic-chart-sample",
-    url: "https://guamegi.github.io/dynamic-chart-sample/",
-    stack: "HTML5, CSS3, Javascript, HTML5 Canvas",
-  },
+  // {
+  //   no: 1,
+  //   name: "Dynamic Chart Sample",
+  //   period: "2019.07 ~ 12, 2022.07 ~",
+  //   images: [
+  //     "src/images/projects/dynamicChart/1.png",
+  //     "src/images/projects/dynamicChart/2.png",
+  //   ],
+  //   desc: `실시간 차트를 이용한 트레이딩 플랫폼을 검토하기 위해
+  //   2인이 Canvas를 사용하여 프로토타입 개발. 임시 중단된 legacy 활용 검토 중.
+  //   샘플 데이터를 생성해 동적 차트 생성과 서큘러 큐
+  //   방식의 데이터 구조 활용.
+  //   `,
+  //   func: "샘플 데이터를 이용한 동적 차트 생성 및 차트 설정",
+  //   github: "https://github.com/guamegi/dynamic-chart-sample",
+  //   url: "https://guamegi.github.io/dynamic-chart-sample/",
+  //   stack: "HTML5, CSS3, Javascript, HTML5 Canvas",
+  // },
 ];
