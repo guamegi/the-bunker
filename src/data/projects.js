@@ -1,5 +1,19 @@
 export const projects = [
   {
+    no: 10,
+    name: "Gen Chat",
+    period: "2025.03",
+    images: [
+      "src/images/projects/genChat/1.png",
+      "src/images/projects/genChat/2.png",
+    ],
+    desc: "GoogleGenerativeAI를 활용한 챗봇. 사용자가 입력한 문장을 기반으로 챗봇이 응답(이미지)을 생성. 사용자가 챗봇과 대화하며 새로운 이미지를 생성할 수 있음.",
+    func: "사용자 입력 문장을 기반으로 챗봇이 응답 이미지 생성, 챗봇과 대화",
+    github: "https://github.com/guamegi/gen-chat",
+    url: "https://guamegi.github.io/gen-chat/",
+    stack: "HTML5, CSS3, Javascript, generative-ai, Webpack",
+  },
+  {
     no: 9,
     name: "The Bunker",
     period: "2023.09",
