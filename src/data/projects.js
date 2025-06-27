@@ -11,7 +11,7 @@ export const projects = [
     func: "사용자 입력 문장을 기반으로 챗봇이 응답 이미지 생성, 챗봇과 대화, Light/Dark 테마 지원",
     github: "https://github.com/guamegi/gen-chat",
     url: "https://guamegi.github.io/gen-chat/",
-    stack: "HTML5, CSS3, Javascript, generative-ai, Webpack",
+    stack: "React.js, generative-ai, Webpack",
   },
   {
     no: 9,
