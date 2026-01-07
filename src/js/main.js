@@ -189,6 +189,12 @@ const clickPanel = (stair) => {
   const targetFloor = stairToNumber(stair);
   const floorDiff = Math.abs(targetFloor - currentFloor);
 
+  // 현재 층수와 목적지 층수가 동일하면 바로 문 열기
+  if (currentStair === stair) {
+    openDoors();
+    return;
+  }
+
   // 현재 층수 LED 깜빡임 효과 (2초간)
   showCurrentFloorBlinking();
 

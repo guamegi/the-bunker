@@ -21,7 +21,7 @@ export const skills = [
   {
     category: "Front-End",
     name: "NextJS",
-    percentage: 80,
+    percentage: 85,
     color: "blue",
   },
 
@@ -46,7 +46,7 @@ export const skills = [
   {
     category: "Back-End",
     name: "ExpressJS",
-    percentage: 75,
+    percentage: 80,
     color: "purple",
   },
   {
@@ -76,7 +76,7 @@ export const skills = [
   {
     category: "Version Control",
     name: "SVN",
-    percentage: 75,
+    percentage: 80,
     color: "green",
   },
   {
@@ -94,7 +94,7 @@ export const skills = [
   {
     category: "Communication",
     name: "Redmine",
-    percentage: 85,
+    percentage: 90,
     color: "yellow",
   },
   {
