@@ -36,6 +36,7 @@
         ></canvas>
       </div>
       <button
+        id="elevatorEnterBtn"
         class="metal radial plus mx-6 m-4 duration-75 hover:scale-95"
         onclick="moveToTop()"
       >
@@ -84,19 +85,19 @@
             <div class="flex flex-col mx-auto">
               <input
                 type="button"
-                class="controlBtn transition duration-75 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-75 w-12 py-2 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="L"
                 onclick="clickPanel(this.value)"
               />
               <input
                 type="button"
-                class="controlBtn transition duration-75 mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-75 mt-2 w-12 py-2 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="-1"
                 onclick="clickPanel(this.value)"
               />
               <input
                 type="button"
-                class="controlBtn transition duration-75 mt-2 w-12 py-2 bg-black border-4 border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-75 mt-2 w-12 py-2 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="-2"
                 onclick="clickPanel(this.value)"
               />
