@@ -10,7 +10,7 @@ export const projects = [
     desc: "GoogleGenerativeAI를 활용한 챗봇. 사용자가 입력한 문장을 기반으로 챗봇이 응답(이미지)을 생성. 사용자가 챗봇과 대화하며 새로운 이미지를 생성할 수 있음.",
     func: "사용자 입력 문장을 기반으로 챗봇이 응답 이미지 생성, 챗봇과 대화, Light/Dark 테마 지원",
     github: "https://github.com/guamegi/gen-chat",
-    url: "https://guamegi.github.io/gen-chat/",
+    // url: "https://guamegi.github.io/gen-chat/",
     stack: "React.js, generative-ai, Webpack",
   },
   {
@@ -134,7 +134,7 @@ export const projects = [
     `,
     func: "가상화폐 웹소켓 실시간 시세, 주식 시세 크롤링, chart 라이브러리 활용 차트생성",
     github: "https://github.com/guamegi/chart-book-nodejs",
-    url: "https://port-0-chart-book-nodejs-jvpb2aln39jnz0.sel5.cloudtype.app/",
+    // url: "https://port-0-chart-book-nodejs-jvpb2aln39jnz0.sel5.cloudtype.app/",
     stack:
       "React.js, Bootstrap, Websocket, Chart.js, Tradingview-lightweight, cloudtype, zustand",
   },
