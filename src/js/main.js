@@ -49,6 +49,16 @@ const init = () => {
 const modal = document.querySelector(".modalWrapper");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 
+// 모달 바깥(오버레이) 클릭 시 모달 닫기
+// 모달 내부(.mySwiper)를 클릭한 경우는 닫기 동작을 무시합니다.
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (!e.target.closest(".mySwiper")) {
+      closeModal();
+    }
+  });
+}
+
 const showModal = (images) => {
   // console.log("show modal");
   modal.classList.remove("hidden");
