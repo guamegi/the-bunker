@@ -52,13 +52,33 @@
       <div class="flex h-full">
         <div
           id="wrapper"
-          class="flex flex-row justify-center w-screen h-screen p-10"
+          class="flex flex-row justify-center w-screen h-screen pt-32 pb-10"
         >
           <!-- canvas -->
-          <canvas
-            id="canvasDoors"
-            class="w-[800px] p-1 bg-black shadow-[0px_0px_5px_black]"
-          ></canvas>
+          <div class="relative h-full flex items-center justify-center">
+            <!-- doors LED (위치: 엘리베이터 문 위) -->
+            <div
+              class="flex justify-center w-[200px] h-[77px] p-4 bg-black absolute -top-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <canvas
+                id="canvasDoorsLED_1"
+                width="24"
+                height="40"
+                class="mx-0.3"
+              ></canvas>
+              <canvas
+                id="canvasDoorsLED_2"
+                width="24"
+                height="40"
+                class="mx-0.3"
+              ></canvas>
+            </div>
+
+            <canvas
+              id="canvasDoors"
+              class="w-[800px] max-h-full p-1 bg-black shadow-[0px_0px_5px_black]"
+            ></canvas>
+          </div>
 
           <!-- panel -->
           <div

@@ -147,3 +147,23 @@
 #elevatorEnterBtn.blinking {
   animation: textBlink 2s ease-in-out infinite;
 }
+
+/* Make control buttons circular and center the label */
+.controlBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; /* 버튼 너비 */
+  height: 48px; /* 버튼 높이 */
+  padding: 0; /* 기본 패딩 제거 */
+  border-radius: 9999px; /* 원 형태 */
+  box-sizing: border-box;
+}
+
+/* 작은 화면에서 크기 조절 (선택사항) */
+@media (max-width: 640px) {
+  .controlBtn {
+    width: 44px;
+    height: 44px;
+  }
+}

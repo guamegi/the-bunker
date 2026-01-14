@@ -9,6 +9,9 @@ const canvasLED1_1 = document.querySelector("#canvasLED1_1");
 const canvasLED1_2 = document.querySelector("#canvasLED1_2");
 const canvasLED2_1 = document.querySelector("#canvasLED2_1");
 const canvasLED2_2 = document.querySelector("#canvasLED2_2");
+// doors top LED canvases
+const canvasDoorsLED_1 = document.querySelector("#canvasDoorsLED_1");
+const canvasDoorsLED_2 = document.querySelector("#canvasDoorsLED_2");
 
 const ctxDoors = canvasDoors.getContext("2d");
 
@@ -30,6 +33,13 @@ const led1_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_1 });
 const led1_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_2 });
 const led2_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_1 });
 const led2_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_2 });
+// door top LEDs (mirror of panel LED)
+const ledDoors_1 = canvasDoorsLED_1
+  ? new Numeral_LED_Matrix(0, { canvas: canvasDoorsLED_1 })
+  : null;
+const ledDoors_2 = canvasDoorsLED_2
+  ? new Numeral_LED_Matrix(0, { canvas: canvasDoorsLED_2 })
+  : null;
 
 skills.forEach((obj, idx, all) => {
   new SkillBars(obj).createEl(idx, all);
@@ -106,6 +116,11 @@ const changeNumeralLED = (stair) => {
   led1_2.init(rightNum, { canvas: canvasLED1_2 });
   led2_1.init(leftNum, { canvas: canvasLED2_1 });
   led2_2.init(rightNum, { canvas: canvasLED2_2 });
+  // door top LEDs (same as panel)
+  if (ledDoors_1 && ledDoors_2) {
+    ledDoors_1.init(leftNum, { canvas: canvasDoorsLED_1 });
+    ledDoors_2.init(rightNum, { canvas: canvasDoorsLED_2 });
+  }
 };
 
 // 우측 위젯 LED만 변경
@@ -272,6 +287,11 @@ const showFloorBlinkingForStair = (stair, callback) => {
       led1_2.init(0, { canvas: canvasLED1_2 }); // empty
       led2_1.init(0, { canvas: canvasLED2_1 });
       led2_2.init(0, { canvas: canvasLED2_2 });
+      // door top LEDs also clear
+      if (ledDoors_1 && ledDoors_2) {
+        ledDoors_1.init(0, { canvas: canvasDoorsLED_1 });
+        ledDoors_2.init(0, { canvas: canvasDoorsLED_2 });
+      }
     }
 
     isVisible = !isVisible;
@@ -306,6 +326,11 @@ const showCurrentFloorBlinking = () => {
       led1_2.init(0, { canvas: canvasLED1_2 }); // empty
       led2_1.init(0, { canvas: canvasLED2_1 });
       led2_2.init(0, { canvas: canvasLED2_2 });
+      // door top LEDs also clear
+      if (ledDoors_1 && ledDoors_2) {
+        ledDoors_1.init(0, { canvas: canvasDoorsLED_1 });
+        ledDoors_2.init(0, { canvas: canvasDoorsLED_2 });
+      }
     }
 
     isVisible = !isVisible;
@@ -321,7 +346,9 @@ const showCurrentFloorBlinking = () => {
 
 const makeDoors = () => {
   // console.log("make doors");
-  canvasDoors.height = wrapper.clientHeight;
+  // Set canvas height to its parent container's height so it stays inside the relative box
+  const canvasContainer = canvasDoors.parentElement;
+  canvasDoors.height = canvasContainer.clientHeight;
 
   leftDoorImg = new Image();
   rightDoorImg = new Image();
