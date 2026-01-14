@@ -58,20 +58,22 @@
           <div class="relative h-full flex items-center justify-center">
             <!-- doors LED (위치: 엘리베이터 문 위) -->
             <div
-              class="flex justify-center w-[200px] h-[77px] p-4 bg-black absolute -top-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+              class="flex flex-row justify-center absolute p-2 -top-14 left-1/2 w-[260px] h-[94px] bg-[url('./src/images/panel.jpeg')] bg-cover -translate-x-1/2 -translate-y-1/2 shadow-[3px_3px_4px_black]"
             >
-              <canvas
-                id="canvasDoorsLED_1"
-                width="24"
-                height="40"
-                class="mx-0.3"
-              ></canvas>
-              <canvas
-                id="canvasDoorsLED_2"
-                width="24"
-                height="40"
-                class="mx-0.3"
-              ></canvas>
+              <div class="flex justify-center w-[200px] h-[77px] p-4 bg-black">
+                <canvas
+                  id="canvasDoorsLED_1"
+                  width="24"
+                  height="40"
+                  class="mx-0.3"
+                ></canvas>
+                <canvas
+                  id="canvasDoorsLED_2"
+                  width="24"
+                  height="40"
+                  class="mx-0.3"
+                ></canvas>
+              </div>
             </div>
 
             <canvas
