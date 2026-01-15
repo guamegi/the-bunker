@@ -531,6 +531,41 @@ const moveToTop = () => {
   }, 500);
 };
 
+// 모바일 감지 및 PC 최적화 안내 배너 표시
+const isMobileDevice = () => {
+  return /Mobi|Android|iPhone|iPad|Tablet/i.test(navigator.userAgent);
+};
+
+const showMobileNotice = () => {
+  try {
+    if (!isMobileDevice()) return;
+  } catch (e) {
+    // localStorage may be disabled — still proceed to show
+  }
+  if (document.getElementById("mobile-notice")) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.id = "mobile-notice";
+  wrapper.innerHTML = `<div class="mobile-notice-inner"><span>PC 버전에 최적화되어 있습니다</span><button class="mobile-notice-close" aria-label="닫기">확인</button></div>`;
+  document.body.appendChild(wrapper);
+  // prevent body scroll / layout shift while overlay is visible
+  try {
+    document.documentElement.classList.add("has-mobile-overlay");
+    document.body.classList.add("has-mobile-overlay");
+  } catch (e) {}
+
+  const btn = wrapper.querySelector(".mobile-notice-close");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      wrapper.classList.add("hidden");
+      try {
+        document.documentElement.classList.remove("has-mobile-overlay");
+        document.body.classList.remove("has-mobile-overlay");
+      } catch (e) {}
+    });
+  }
+};
+
 window.addEventListener("resize", function () {
   // console.log("resize!", wrapper.clientHeight);
   DOOR_HEIGHT = wrapper.clientHeight;
@@ -540,37 +575,41 @@ window.addEventListener("resize", function () {
 window.onload = function () {
   init();
 
-  introJs()
-    .setOptions({
-      steps: [
-        {
-          // title: "Welcome",
-          element: "#doorsLED",
-          intro:
-            '<img src="https://i.giphy.com/media/ujUdrdpX7Ok5W/giphy.webp" onerror="this.onerror=null;this.src="https://i.giphy.com/ujUdrdpX7Ok5W.gif" alt=""> <br/>환영합니다! <br/> 이 웹사이트는 엘리베이터를 테마로 한 포트폴리오 사이트입니다. <br/>',
-        },
-        {
-          element: "#onboard1",
-          intro:
-            "엘리베이터 내부의 층수 버튼을 클릭하여 다양한 섹션을 탐색해보세요!",
-          position: "left", // 위치 설정 (top, bottom, left, right)
-        },
-        {
-          element: "#onboard2",
-          intro:
-            "엘리베이터 내부의 LED는 현재 층수를 나타냅니다. <br/> 즐거운 시간 되세요! ",
-          position: "left",
-        },
-      ],
-      nextLabel: "다음",
-      prevLabel: "이전",
-      doneLabel: "완료",
-      dontShowAgain: true,
-      tooltipClass: "customTooltip",
-      // showProgress: true,
-      // showBullets: false,
-    })
-    .start();
+  if (isMobileDevice()) {
+    showMobileNotice();
+  } else {
+    introJs()
+      .setOptions({
+        steps: [
+          {
+            // title: "Welcome",
+            element: "#doorsLED",
+            intro:
+              '<img src="https://i.giphy.com/media/ujUdrdpX7Ok5W/giphy.webp" onerror="this.onerror=null;this.src="https://i.giphy.com/ujUdrdpX7Ok5W.gif" alt=""> <br/>환영합니다! <br/> 이 웹사이트는 엘리베이터를 테마로 한 포트폴리오 사이트입니다. <br/>',
+          },
+          {
+            element: "#onboard1",
+            intro:
+              "엘리베이터 내부의 층수 버튼을 클릭하여 다양한 섹션을 탐색해보세요!",
+            position: "left", // 위치 설정 (top, bottom, left, right)
+          },
+          {
+            element: "#onboard2",
+            intro:
+              "엘리베이터 내부의 LED는 현재 층수를 나타냅니다. <br/> 즐거운 시간 되세요! ",
+            position: "left",
+          },
+        ],
+        nextLabel: "다음",
+        prevLabel: "이전",
+        doneLabel: "완료",
+        dontShowAgain: true,
+        tooltipClass: "customTooltip",
+        // showProgress: true,
+        // showBullets: false,
+      })
+      .start();
+  }
 };
 
 // module 방식이라 global로 보내야 함
