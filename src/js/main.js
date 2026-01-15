@@ -21,13 +21,18 @@ const elevatorBtn = document.querySelector("#elevatorBtn");
 const DOOR_WIDTH = 150;
 let DOOR_HEIGHT = wrapper.clientHeight;
 
-let seletedSection = "section1";
-let currentStair = "L"; // 현재 층수 추적
+// Unified state object
+const state = {
+  selectedSection: "section1",
+  currentStair: "L",
+  door: {
+    leftX: 0,
+    rightX: 151,
+  },
+};
+
 let leftDoorImg;
 let rightDoorImg;
-
-let leftDoorX = 0;
-let rightDoorX = 151;
 
 const led1_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_1 });
 const led1_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_2 });
@@ -123,29 +128,6 @@ const changeNumeralLED = (stair) => {
   }
 };
 
-// 우측 위젯 LED만 변경
-const changeWidgetLED = (stair) => {
-  let leftNum;
-  let rightNum;
-  switch (stair) {
-    case "L":
-      leftNum = 0;
-      rightNum = 3;
-      break;
-    case "-1":
-      leftNum = 4;
-      rightNum = 1;
-      break;
-    case "-2":
-      leftNum = 4;
-      rightNum = 2;
-      break;
-  }
-
-  led2_1.init(leftNum, { canvas: canvasLED2_1 });
-  led2_2.init(rightNum, { canvas: canvasLED2_2 });
-};
-
 // 층수 버튼 반짝임 효과 시작
 const startButtonBlinking = () => {
   const controlButtons = document.querySelectorAll(".controlBtn");
@@ -200,22 +182,22 @@ const clickPanel = (stair) => {
 
   switch (stair) {
     case "L":
-      seletedSection = "section2";
+      state.selectedSection = "section2";
       break;
     case "-1":
-      seletedSection = "section3";
+      state.selectedSection = "section3";
       break;
     case "-2":
-      seletedSection = "section4";
+      state.selectedSection = "section4";
       break;
   }
 
-  const currentFloor = stairToNumber(currentStair);
+  const currentFloor = stairToNumber(state.currentStair);
   const targetFloor = stairToNumber(stair);
   const floorDiff = Math.abs(targetFloor - currentFloor);
 
   // 현재 층수와 목적지 층수가 동일하면 바로 문 열기
-  if (currentStair === stair) {
+  if (state.currentStair === stair) {
     openDoors();
     return;
   }
@@ -225,12 +207,12 @@ const clickPanel = (stair) => {
 
   // 한 층 이상 차이가 나면 한 층씩 이동
   if (floorDiff > 1) {
-    moveFloorsStepByStep(currentStair, stair);
+    moveFloorsStepByStep(state.currentStair, stair);
   } else {
     // 한 층 차이면 기존처럼 동작
     setTimeout(() => {
       changeNumeralLED(stair);
-      currentStair = stair; // 현재 층수 업데이트
+      state.currentStair = stair; // 현재 층수 업데이트
       openDoors();
     }, 2000);
   }
@@ -253,7 +235,7 @@ const moveFloorsStepByStep = (fromStair, toStair) => {
 
     // LED 변경
     changeNumeralLED(nextStair);
-    currentStair = nextStair;
+    state.currentStair = nextStair;
 
     // 마지막 층이면 바로 문 열기 (깜빡임 없음)
     if (stepCount >= totalSteps) {
@@ -319,7 +301,7 @@ const showCurrentFloorBlinking = () => {
   const blinkLED = setInterval(() => {
     if (isVisible) {
       // 현재 층수 표시 (엘리베이터 내부와 우측 위젯 모두)
-      changeNumeralLED(currentStair);
+      changeNumeralLED(state.currentStair);
     } else {
       // LED 숨김 (빈 숫자로 표시 - 엘리베이터 내부와 우측 위젯 모두)
       led1_1.init(0, { canvas: canvasLED1_1 }); // empty
@@ -339,7 +321,7 @@ const showCurrentFloorBlinking = () => {
     if (count >= maxCount) {
       clearInterval(blinkLED);
       // 마지막에 다시 현재 층수 표시
-      changeNumeralLED(currentStair);
+      changeNumeralLED(state.currentStair);
     }
   }, interval);
 };
@@ -378,7 +360,7 @@ let startTime;
 // open animation
 const openDoors = () => {
   // console.log("open doors");
-  if (leftDoorX !== 0) return;
+  if (state.door.leftX !== 0) return;
 
   startTime = new Date().getTime();
   setTimeout(() => {
@@ -391,15 +373,15 @@ const closeDoors = () => {
   ctxDoors.drawImage(leftDoorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
   ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
 
-  leftDoorX = 0;
-  rightDoorX = 151;
+  state.door.leftX = 0;
+  state.door.rightX = 151;
 };
 
 // animate
 const DURATION = 400;
 const moveDoors = () => {
-  // console.log("move doors", rightDoorX);
-  if (rightDoorX > DOOR_WIDTH * 2) {
+  // console.log("move doors", state.door.rightX);
+  if (state.door.rightX > DOOR_WIDTH * 2) {
     moveToSection();
     closeDoors();
     // 해당 층수 화면으로 이동 후 깜빡임 효과 재시작
@@ -411,21 +393,27 @@ const moveDoors = () => {
 
   // easeOut 효과
   let time = new Date().getTime() - startTime;
-  leftDoorX -= DURATION / time;
-  rightDoorX += DURATION / time;
+  state.door.leftX -= DURATION / time;
+  state.door.rightX += DURATION / time;
 
   ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
-  ctxDoors.drawImage(leftDoorImg, leftDoorX, 0, DOOR_WIDTH, DOOR_HEIGHT);
-  ctxDoors.drawImage(rightDoorImg, rightDoorX, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(leftDoorImg, state.door.leftX, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(
+    rightDoorImg,
+    state.door.rightX,
+    0,
+    DOOR_WIDTH,
+    DOOR_HEIGHT
+  );
 
-  leftDoorX--;
-  rightDoorX++;
+  state.door.leftX--;
+  state.door.rightX++;
 
   requestAnimationFrame(moveDoors);
 };
 
 const moveToSection = () => {
-  const node = document.querySelector(`#${seletedSection}`);
+  const node = document.querySelector(`#${state.selectedSection}`);
 
   window.scrollTo({
     top: node.offsetTop,
@@ -512,12 +500,12 @@ const moveToTop = () => {
     }
   }
 
-  seletedSection = "section1";
+  state.selectedSection = "section1";
 
   setTimeout(() => {
     moveToSection();
     // 엘리베이터 내부 LED와 우측 위젯 LED 모두 최종 변경된 층수 유지
-    changeNumeralLED(currentStair);
+    changeNumeralLED(state.currentStair);
     elevatorBtn.children[1].style.color = "black";
 
     // 패널 애니메이션 초기화
@@ -549,10 +537,9 @@ window.addEventListener("resize", function () {
   makeDoors();
 });
 
-init();
-
 window.onload = function () {
-  // introJs.tour().start();
+  init();
+
   introJs()
     .setOptions({
       steps: [
