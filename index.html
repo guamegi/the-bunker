@@ -7,11 +7,15 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>The Bunker</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/introjs.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/intro.js/themes/introjs-modern.css"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
-
     <link rel="stylesheet" href="./src/style.css" />
   </head>
 
@@ -58,6 +62,7 @@
           <div class="relative h-full flex items-center justify-center">
             <!-- doors LED (위치: 엘리베이터 문 위) -->
             <div
+              id="doorsLED"
               class="flex flex-row justify-center absolute p-2 -top-14 left-1/2 w-[260px] h-[94px] bg-[url('./src/images/panel.jpeg')] bg-cover -translate-x-1/2 -translate-y-1/2 shadow-[3px_3px_4px_black]"
             >
               <div class="flex justify-center w-[200px] h-[77px] p-4 bg-black">
@@ -88,7 +93,10 @@
             class="flex flex-col ml-10 px-6 h-3/4 justify-evenly text-white font-normal bg-[url('./src/images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
           >
             <!-- LED -->
-            <div class="flex justify-center w-[150px] h-[77px] p-4 bg-black">
+            <div
+              class="flex justify-center w-[150px] h-[77px] p-4 bg-black"
+              id="onboard2"
+            >
               <canvas
                 id="canvasLED1_1"
                 width="24"
@@ -104,7 +112,7 @@
             </div>
 
             <!-- control button(inner) -->
-            <div class="flex flex-col mx-auto">
+            <div class="controlBtn flex flex-col mx-auto" id="onboard1">
               <input
                 type="button"
                 class="controlBtn transition duration-75 w-12 py-2 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
@@ -308,6 +316,13 @@
     </div>
 
     <script type="module" src="./dist/main.js"></script>
+    <!-- <script type="module" src="./src/js/main.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/8.3.2/intro.min.js"
+      integrity="sha512-5ykRz1AkSpATwLO5fFqJb7Y5kprfzu/q9PbRVSOspLcn2Tm7m6vZIAyoUA4a5GFNRIlxM43kHXmYEphfz3eOWA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
     <script>

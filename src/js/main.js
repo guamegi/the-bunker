@@ -551,6 +551,41 @@ window.addEventListener("resize", function () {
 
 init();
 
+window.onload = function () {
+  // introJs.tour().start();
+  introJs()
+    .setOptions({
+      steps: [
+        {
+          // title: "Welcome",
+          element: "#doorsLED",
+          intro:
+            '<img src="https://i.giphy.com/media/ujUdrdpX7Ok5W/giphy.webp" onerror="this.onerror=null;this.src="https://i.giphy.com/ujUdrdpX7Ok5W.gif" alt=""> <br/>환영합니다! <br/> 이 웹사이트는 엘리베이터를 테마로 한 포트폴리오 사이트입니다. <br/>',
+        },
+        {
+          element: "#onboard1",
+          intro:
+            "엘리베이터 내부의 층수 버튼을 클릭하여 다양한 섹션을 탐색해보세요!",
+          position: "left", // 위치 설정 (top, bottom, left, right)
+        },
+        {
+          element: "#onboard2",
+          intro:
+            "엘리베이터 내부의 LED는 현재 층수를 나타냅니다. <br/> 즐거운 시간 되세요! ",
+          position: "left",
+        },
+      ],
+      nextLabel: "다음",
+      prevLabel: "이전",
+      doneLabel: "완료",
+      dontShowAgain: true,
+      tooltipClass: "customTooltip",
+      // showProgress: true,
+      // showBullets: false,
+    })
+    .start();
+};
+
 // module 방식이라 global로 보내야 함
 window.moveToTop = moveToTop;
 window.showModal = showModal;

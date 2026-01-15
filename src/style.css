@@ -133,6 +133,23 @@
   animation: buttonBlink 2s ease-in-out infinite;
 }
 
+/* intro.js 커스텀 스타일 */
+@font-face {
+  font-family: "NoonnuBasicGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+.customTooltip * {
+  font-family: "NoonnuBasicGothic";
+  color: #ffffff;
+  /* font-size: 18px; */
+}
+.customTooltip .introjs-tooltip-title {
+  color: #f4fc00;
+}
+
 /* 탑승 버튼 텍스트 반짝임 효과 */
 @keyframes textBlink {
   0%,
