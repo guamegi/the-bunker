@@ -235,9 +235,6 @@ const clickPanel = (stair) => {
     updateDirectionIndicators("up");
   }
 
-  // 현재 층수 LED 깜빡임 효과 (2초간)
-  showCurrentFloorBlinking();
-
   // 한 층 이상 차이가 나면 한 층씩 이동
   if (floorDiff > 1) {
     moveFloorsStepByStep(state.currentStair, stair);
@@ -276,10 +273,8 @@ const moveFloorsStepByStep = (fromStair, toStair) => {
       turnOffDirectionIndicators();
       openDoors();
     } else {
-      // 중간 층에서 2초 깜빡임 후 다음 층으로 이동
-      showFloorBlinkingForStair(nextStair, () => {
-        setTimeout(moveToNextFloor, 0);
-      });
+      // 중간 층에서 2초 대기 후 다음 층으로 이동 (깜빡임 없음)
+      setTimeout(moveToNextFloor, 2000);
     }
   };
 
@@ -322,41 +317,6 @@ const showFloorBlinkingForStair = (stair, callback) => {
       if (callback) {
         callback();
       }
-    }
-  }, interval);
-};
-
-// 현재 층수 LED 깜빡임 효과
-const showCurrentFloorBlinking = () => {
-  let count = 0;
-  const maxCount = 4; // 2초 = 2000ms, 0.5초(500ms) 간격 = 4번
-  const interval = 500; // 0.5초마다 깜빡임
-  let isVisible = true;
-
-  const blinkLED = setInterval(() => {
-    if (isVisible) {
-      // 현재 층수 표시 (엘리베이터 내부와 우측 위젯 모두)
-      changeNumeralLED(state.currentStair);
-    } else {
-      // LED 숨김 (빈 숫자로 표시 - 엘리베이터 내부와 우측 위젯 모두)
-      led1_1.init(0, { canvas: canvasLED1_1 }); // empty
-      led1_2.init(0, { canvas: canvasLED1_2 }); // empty
-      led2_1.init(0, { canvas: canvasLED2_1 });
-      led2_2.init(0, { canvas: canvasLED2_2 });
-      // door top LEDs also clear
-      if (ledDoors_1 && ledDoors_2) {
-        ledDoors_1.init(0, { canvas: canvasDoorsLED_1 });
-        ledDoors_2.init(0, { canvas: canvasDoorsLED_2 });
-      }
-    }
-
-    isVisible = !isVisible;
-    count++;
-
-    if (count >= maxCount) {
-      clearInterval(blinkLED);
-      // 마지막에 다시 현재 층수 표시
-      changeNumeralLED(state.currentStair);
     }
   }, interval);
 };
