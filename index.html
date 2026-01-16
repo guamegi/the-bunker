@@ -92,42 +92,60 @@
             id="panel"
             class="flex flex-col ml-10 px-6 h-3/4 justify-evenly text-white font-normal bg-[url('./src/images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
           >
-            <!-- LED -->
-            <div
-              class="flex justify-center w-[150px] h-[77px] p-4 bg-black"
-              id="onboard2"
-            >
-              <canvas
-                id="canvasLED1_1"
-                width="24"
-                height="40"
-                class="mx-0.3"
-              ></canvas>
-              <canvas
-                id="canvasLED1_2"
-                width="24"
-                height="40"
-                class="mx-0.3"
-              ></canvas>
+            <!-- LED & Direction Indicators -->
+            <div class="flex flex-col items-center gap-2">
+              <!-- Direction Indicators -->
+              <div class="flex gap-10">
+                <div
+                  id="directionUp"
+                  class="text-5xl text-gray-400 transition-colors duration-200"
+                >
+                  ▲
+                </div>
+                <div
+                  id="directionDown"
+                  class="text-5xl text-gray-400 transition-colors duration-200"
+                >
+                  ▼
+                </div>
+              </div>
+              <!-- LED -->
+              <div
+                class="flex justify-center w-[150px] h-[77px] p-4 bg-black"
+                id="onboard2"
+              >
+                <canvas
+                  id="canvasLED1_1"
+                  width="24"
+                  height="40"
+                  class="mx-0.3"
+                ></canvas>
+                <canvas
+                  id="canvasLED1_2"
+                  width="24"
+                  height="40"
+                  class="mx-0.3"
+                ></canvas>
+              </div>
             </div>
 
             <!-- control button(inner) -->
             <div class="controlBtn flex flex-col mx-auto" id="onboard1">
               <input
                 type="button"
-                class="controlBtn transition duration-75 w-12 py-2 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-75 w-12 h-12 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="L"
                 onclick="clickPanel(this.value)"
               />
               <input
                 type="button"
-                class="controlBtn transition duration-75 mt-2 w-12 py-2 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-75 mt-2 w-12 h-12 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="-1"
                 onclick="clickPanel(this.value)"
               />
               <input
                 type="button"
-                class="controlBtn transition duration-75 mt-2 w-12 py-2 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
+                class="controlBtn transition duration-75 mt-2 w-12 h-12 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
                 value="-2"
                 onclick="clickPanel(this.value)"
               />
@@ -315,8 +333,8 @@
       </div>
     </div>
 
-    <script type="module" src="./dist/main.js"></script>
-    <!-- <script type="module" src="./src/js/main.js"></script> -->
+    <!-- <script type="module" src="./dist/main.js"></script> -->
+    <script type="module" src="./src/js/main.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/8.3.2/intro.min.js"
       integrity="sha512-5ykRz1AkSpATwLO5fFqJb7Y5kprfzu/q9PbRVSOspLcn2Tm7m6vZIAyoUA4a5GFNRIlxM43kHXmYEphfz3eOWA=="

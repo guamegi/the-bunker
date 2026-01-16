@@ -171,6 +171,29 @@ const numberToStair = (num) => {
   }
 };
 
+// 방향 표시등 상태 관리
+const updateDirectionIndicators = (direction) => {
+  const directionUp = document.querySelector("#directionUp");
+  const directionDown = document.querySelector("#directionDown");
+
+  // 모두 기본 색상으로 설정
+  directionUp.style.color = "#9ca3af";
+  directionDown.style.color = "#9ca3af";
+
+  if (direction === "up") {
+    // 위쪽 화살표 빨강으로 변경
+    directionUp.style.color = "#eac300";
+  } else if (direction === "down") {
+    // 아래쪽 화살표 빨강으로 변경
+    directionDown.style.color = "#eac300";
+  }
+};
+
+// 방향 표시등 끄기
+const turnOffDirectionIndicators = () => {
+  updateDirectionIndicators(null);
+};
+
 const clickPanel = (stair) => {
   // 반짝임 효과 제거
   const controlButtons = document.querySelectorAll(".controlBtn");
@@ -198,8 +221,18 @@ const clickPanel = (stair) => {
 
   // 현재 층수와 목적지 층수가 동일하면 바로 문 열기
   if (state.currentStair === stair) {
+    turnOffDirectionIndicators();
     openDoors();
     return;
+  }
+
+  // 이동 방향 결정 및 표시등 제어
+  if (targetFloor > currentFloor) {
+    // 아래층으로 이동
+    updateDirectionIndicators("down");
+  } else {
+    // 위층으로 이동
+    updateDirectionIndicators("up");
   }
 
   // 현재 층수 LED 깜빡임 효과 (2초간)
@@ -213,6 +246,7 @@ const clickPanel = (stair) => {
     setTimeout(() => {
       changeNumeralLED(stair);
       state.currentStair = stair; // 현재 층수 업데이트
+      turnOffDirectionIndicators();
       openDoors();
     }, 2000);
   }
@@ -239,6 +273,7 @@ const moveFloorsStepByStep = (fromStair, toStair) => {
 
     // 마지막 층이면 바로 문 열기 (깜빡임 없음)
     if (stepCount >= totalSteps) {
+      turnOffDirectionIndicators();
       openDoors();
     } else {
       // 중간 층에서 2초 깜빡임 후 다음 층으로 이동
