@@ -108,7 +108,6 @@
   0%,
   100% {
     border-color: #9ca3af;
-    border-width: 2px;
     color: inherit;
     /* box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 2px,
       inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 2px,
@@ -118,7 +117,6 @@
   }
   50% {
     border-color: #ef4444;
-    border-width: 2px;
     color: #ef4444;
     /* box-shadow: inset #ef4444 0 0px 0px 2px,
       inset rgba(239, 68, 68, 0.8) 0 -1px 5px 2px,
@@ -167,14 +165,23 @@
 
 /* Make control buttons circular and center the label */
 .controlBtn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 48px; /* 버튼 너비 */
   height: 48px; /* 버튼 높이 */
-  padding: 0; /* 기본 패딩 제거 */
+  padding: 0 !important; /* 기본 패딩 제거 */
   border-radius: 9999px; /* 원 형태 */
   box-sizing: border-box;
+  min-height: 48px;
+  line-height: 1;
+}
+
+input.controlBtn {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
 }
 
 /* 작은 화면에서 크기 조절 (선택사항) */
