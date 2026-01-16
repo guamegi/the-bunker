@@ -56,6 +56,12 @@ export const skills = [
     color: "purple",
   },
   {
+    category: "Back-End",
+    name: "Redis",
+    percentage: 80,
+    color: "purple",
+  },
+  {
     category: "Mobile App",
     name: "Flutter",
     percentage: 65,
@@ -66,6 +72,18 @@ export const skills = [
     name: "React Native",
     percentage: 85,
     color: "red",
+  },
+  {
+    category: "Mobile App",
+    name: "Android (Java)",
+    percentage: 75,
+    color: "red",
+  },
+  {
+    category: "CI/CD",
+    name: "Jenkins",
+    percentage: 85,
+    color: "gray",
   },
   {
     category: "Version Control",
