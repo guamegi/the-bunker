@@ -541,24 +541,13 @@ const showMobileNotice = () => {
 
   const wrapper = document.createElement("div");
   wrapper.id = "mobile-notice";
-  wrapper.innerHTML = `<div class="mobile-notice-inner"><span>PC 버전에 최적화되어 있습니다</span><button class="mobile-notice-close" aria-label="닫기">확인</button></div>`;
+  wrapper.innerHTML = `<div class="mobile-notice-inner"><span>PC 브라우저에 최적화되어 있습니다</span>더 나은 경험을 위해 PC에서 방문해주세요!</div>`;
   document.body.appendChild(wrapper);
   // prevent body scroll / layout shift while overlay is visible
   try {
     document.documentElement.classList.add("has-mobile-overlay");
     document.body.classList.add("has-mobile-overlay");
   } catch (e) {}
-
-  const btn = wrapper.querySelector(".mobile-notice-close");
-  if (btn) {
-    btn.addEventListener("click", () => {
-      wrapper.classList.add("hidden");
-      try {
-        document.documentElement.classList.remove("has-mobile-overlay");
-        document.body.classList.remove("has-mobile-overlay");
-      } catch (e) {}
-    });
-  }
 };
 
 window.addEventListener("resize", function () {
