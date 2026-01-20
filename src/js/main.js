@@ -64,6 +64,28 @@ const animation4 = lottie.loadAnimation({
   path: "src/json/floss_bear.json",
 });
 
+// Lottie 노출 제어: -1층에서는 animation4만 보이도록, 그 외에는 animation만
+const updateLottieByFloor = (stair) => {
+  const container1 = document.getElementById("lottie-container");
+  const container2 = document.getElementById("lottie-container2");
+  const container4 = document.getElementById("lottie-container4");
+  if (!container1 || !container4) return;
+
+  if (stair === "L") {
+    container1.style.display = "none";
+    container2.style.display = "block";
+    container4.style.display = "none";
+  } else if (stair === "-1") {
+    container1.style.display = "block";
+    container2.style.display = "none";
+    container4.style.display = "none";
+  } else if (stair === "-2") {
+    container1.style.display = "none";
+    container2.style.display = "none";
+    container4.style.display = "block";
+  }
+};
+
 const led1_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_1 });
 const led1_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_2 });
 const led2_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_1 });
@@ -526,6 +548,9 @@ const moveToTop = () => {
   }
 
   state.selectedSection = "section1";
+
+  // 탑승 버튼 클릭 시 현재 층수에 따라 애니메이션 제어
+  updateLottieByFloor(state.currentStair);
 
   setTimeout(() => {
     moveToSection();
