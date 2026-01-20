@@ -34,6 +34,36 @@ const state = {
 let leftDoorImg;
 let rightDoorImg;
 
+// Lottie animations
+const animation = lottie.loadAnimation({
+  container: document.getElementById("lottie-container"), // 애니메이션을 담을 요소
+  renderer: "svg", // 렌더링 방식 (svg/canvas/html)
+  loop: true, // 무한 반복 여부
+  autoplay: true, // 자동 재생 여부
+  path: "src/json/celebrate_life.json", // 다운로드받은 .json 파일 경로 (같은 폴더에 있을 경우)
+});
+const animation2 = lottie.loadAnimation({
+  container: document.getElementById("lottie-container2"), // 애니메이션을 담을 요소
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/json/morty_dance.json",
+});
+const animation3 = lottie.loadAnimation({
+  container: document.getElementById("lottie-container3"), // 애니메이션을 담을 요소
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/json/3d_dance_instructor.json",
+});
+const animation4 = lottie.loadAnimation({
+  container: document.getElementById("lottie-container4"), // 애니메이션을 담을 요소
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/json/floss_bear.json",
+});
+
 const led1_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_1 });
 const led1_2 = new Numeral_LED_Matrix(0, { canvas: canvasLED1_2 });
 const led2_1 = new Numeral_LED_Matrix(0, { canvas: canvasLED2_1 });
@@ -398,7 +428,7 @@ const moveDoors = () => {
     state.door.rightX,
     0,
     DOOR_WIDTH,
-    DOOR_HEIGHT
+    DOOR_HEIGHT,
   );
 
   state.door.leftX--;
@@ -467,7 +497,7 @@ const moveToTop = () => {
     } else {
       // section3, section4: 컨텐츠를 화면 중앙 기준으로 좌우 분리
       const mainContent = currentVisibleSection.querySelector(
-        ".max-w-5xl, .max-w-\\[1000px\\]"
+        ".max-w-5xl, .max-w-\\[1000px\\]",
       );
       if (mainContent) {
         const viewportCenterX = window.innerWidth / 2;
