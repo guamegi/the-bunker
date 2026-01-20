@@ -223,26 +223,48 @@ const numberToStair = (num) => {
   }
 };
 
+// 방향 표시등 깜빡임을 위한 interval 변수
+let directionIndicatorInterval = null;
+
 // 방향 표시등 상태 관리
 const updateDirectionIndicators = (direction) => {
   const directionUp = document.querySelector("#directionUp");
   const directionDown = document.querySelector("#directionDown");
+
+  // 기존 interval 정리
+  if (directionIndicatorInterval) {
+    clearInterval(directionIndicatorInterval);
+    directionIndicatorInterval = null;
+  }
 
   // 모두 기본 색상으로 설정
   directionUp.style.color = "#9ca3af";
   directionDown.style.color = "#9ca3af";
 
   if (direction === "up") {
-    // 위쪽 화살표 빨강으로 변경
-    directionUp.style.color = "#eac300";
+    // 위쪽 화살표 깜빡임 효과
+    let isVisible = true;
+    directionIndicatorInterval = setInterval(() => {
+      directionUp.style.color = isVisible ? "#eac300" : "#9ca3af";
+      isVisible = !isVisible;
+    }, 500); // 0.5초마다 깜빡임
   } else if (direction === "down") {
-    // 아래쪽 화살표 빨강으로 변경
-    directionDown.style.color = "#eac300";
+    // 아래쪽 화살표 깜빡임 효과
+    let isVisible = true;
+    directionIndicatorInterval = setInterval(() => {
+      directionDown.style.color = isVisible ? "#eac300" : "#9ca3af";
+      isVisible = !isVisible;
+    }, 500); // 0.5초마다 깜빡임
   }
 };
 
 // 방향 표시등 끄기
 const turnOffDirectionIndicators = () => {
+  // interval 정리
+  if (directionIndicatorInterval) {
+    clearInterval(directionIndicatorInterval);
+    directionIndicatorInterval = null;
+  }
   updateDirectionIndicators(null);
 };
 
