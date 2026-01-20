@@ -393,7 +393,7 @@ const clickPanel = (stair) => {
       state.currentStair = stair; // 현재 층수 업데이트
       turnOffDirectionIndicators();
       openDoors();
-    }, 2000);
+    }, 3000);
   }
 };
 
