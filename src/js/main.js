@@ -105,12 +105,86 @@ projects.forEach((obj) => {
   new Project(obj).createEl();
 });
 
+// 스피커 그릴 그리기
+const drawSpeakerGrille = () => {
+  const svg = document.getElementById("speaker-svg");
+  if (!svg) return;
+
+  const centerX = 45;
+  const centerY = 45;
+  const maxRadius = 42;
+
+  // 구멍 생성: 중심에서 외곽으로 갈수록 간격이 넓어짐
+  const holes = [];
+
+  // 중심부 (0-8px): 매우 촘촘하게
+  for (let r = 2; r <= 8; r += 2) {
+    const circumference = 2 * Math.PI * r;
+    const holeCount = Math.floor(circumference / 3); // 약 3px 간격
+    for (let i = 0; i < holeCount; i++) {
+      const angle = (i / holeCount) * 2 * Math.PI;
+      const x = centerX + r * Math.cos(angle);
+      const y = centerY + r * Math.sin(angle);
+      holes.push({ x, y, r: 1.2 });
+    }
+  }
+
+  // 중간부 (10-20px): 중간 밀도
+  for (let r = 10; r <= 20; r += 3) {
+    const circumference = 2 * Math.PI * r;
+    const holeCount = Math.floor(circumference / 4); // 약 4px 간격
+    for (let i = 0; i < holeCount; i++) {
+      const angle = (i / holeCount) * 2 * Math.PI;
+      const x = centerX + r * Math.cos(angle);
+      const y = centerY + r * Math.sin(angle);
+      holes.push({ x, y, r: 1.1 });
+    }
+  }
+
+  // 외곽부 (23-40px): 희박하게
+  for (let r = 23; r <= 40; r += 4) {
+    const circumference = 2 * Math.PI * r;
+    const holeCount = Math.floor(circumference / 5); // 약 5px 간격
+    for (let i = 0; i < holeCount; i++) {
+      const angle = (i / holeCount) * 2 * Math.PI;
+      const x = centerX + r * Math.cos(angle);
+      const y = centerY + r * Math.sin(angle);
+      // 원형 경계 내부인지 확인
+      const distance = Math.sqrt(
+        Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2),
+      );
+      if (distance + 1.5 < maxRadius) {
+        holes.push({ x, y, r: 1.0 });
+      }
+    }
+  }
+
+  // 중심 점 추가
+  holes.push({ x: centerX, y: centerY, r: 1.5 });
+
+  // SVG에 원 그리기
+  holes.forEach((hole) => {
+    const circle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
+    circle.setAttribute("cx", hole.x);
+    circle.setAttribute("cy", hole.y);
+    circle.setAttribute("r", hole.r);
+    circle.setAttribute("fill", "#0a0a0a");
+    circle.setAttribute("opacity", "0.95");
+    svg.appendChild(circle);
+  });
+};
+
 const init = () => {
   makeDoors();
   changeNumeralLED("L");
   moveToSection();
   // 첫 화면 진입 시 층수 버튼 반짝임 효과
   startButtonBlinking();
+  // 스피커 그릴 그리기
+  drawSpeakerGrille();
 };
 
 const modal = document.querySelector(".modalWrapper");
@@ -245,14 +319,14 @@ const updateDirectionIndicators = (direction) => {
     // 위쪽 화살표 깜빡임 효과
     let isVisible = true;
     directionIndicatorInterval = setInterval(() => {
-      directionUp.style.color = isVisible ? "#eac300" : "#9ca3af";
+      directionUp.style.color = isVisible ? "#ffa601" : "#9ca3af";
       isVisible = !isVisible;
     }, 500); // 0.5초마다 깜빡임
   } else if (direction === "down") {
     // 아래쪽 화살표 깜빡임 효과
     let isVisible = true;
     directionIndicatorInterval = setInterval(() => {
-      directionDown.style.color = isVisible ? "#eac300" : "#9ca3af";
+      directionDown.style.color = isVisible ? "#ffa601" : "#9ca3af";
       isVisible = !isVisible;
     }, 500); // 0.5초마다 깜빡임
   }
