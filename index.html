@@ -125,10 +125,10 @@
           <!-- panel -->
           <div
             id="panel"
-            class="flex flex-col ml-10 px-6 h-3/4 text-white font-normal bg-[url('./src/images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black]"
+            class="flex flex-col ml-10 px-6 h-3/4 min-h-0 text-white font-normal bg-[url('./src/images/panel.jpeg')] bg-cover shadow-[3px_3px_5px_black] overflow-hidden"
           >
             <!-- LED & Direction Indicators -->
-            <div class="flex flex-col items-center gap-2 mt-[20px]">
+            <div class="flex flex-col items-center gap-2 mt-auto">
               <!-- Direction Indicators -->
               <div
                 class="flex justify-center w-[148px] gap-10 shadow-[1px_1px_2px_black]"
@@ -167,7 +167,7 @@
             </div>
 
             <!-- Speaker Display Area -->
-            <div class="flex justify-center mb-2 mt-[50px]">
+            <div class="flex justify-center mb-2 mt-auto">
               <div
                 class="speaker-grille relative w-[70px] h-[70px] rounded-full"
               >
@@ -182,10 +182,7 @@
             </div>
 
             <!-- control button(inner) -->
-            <div
-              class="controlBtn flex flex-col mx-auto mt-[130px]"
-              id="onboard1"
-            >
+            <div class="flex flex-col mx-auto mt-auto mb-[70%]" id="onboard1">
               <input
                 type="button"
                 class="controlBtn transition duration-75 w-12 h-12 bg-black border-[2px] border-gray-400 cursor-pointer focus:border-red-500 focus:text-red-500 shadow-[2px_2px_3px_black] hover:scale-95"
