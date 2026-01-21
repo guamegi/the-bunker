@@ -3,6 +3,7 @@ import Project from "../lib/Project.js";
 import SkillBars from "../lib/SkillBars.js";
 import { projects } from "../data/projects.js";
 import { skills } from "../data/skills.js";
+import * as THREE from "three";
 
 const canvasDoors = document.querySelector("#canvasDoors");
 const canvasLED1_1 = document.querySelector("#canvasLED1_1");
@@ -701,6 +702,71 @@ const showMobileNotice = () => {
   } catch (e) {}
 };
 
+// THREE.js 프로필 카드 구현
+// 1. 씬, 카메라, 렌더러 설정
+const container = document.getElementById("profile-card-container");
+const profileWidth = container.clientWidth;
+const profileHeight = container.clientHeight || 200; // 높이가 지정되지 않았다면 기본값 설정
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+  75,
+  profileWidth / profileHeight,
+  0.1,
+  1000,
+);
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(profileWidth, profileHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
+
+// 2. 이미지 텍스처 로드
+const loader = new THREE.TextureLoader();
+const texture = loader.load("./src/images/profile.png");
+
+// 3. 카드 생성 (평면)
+const geometry = new THREE.PlaneGeometry(5, 5); // 가로세로 비율 조절 가능
+const material = new THREE.MeshBasicMaterial({
+  map: texture,
+  transparent: true,
+  side: THREE.DoubleSide,
+});
+const profileCard = new THREE.Mesh(geometry, material);
+scene.add(profileCard);
+
+camera.position.z = 3; // 카메라 거리 조절
+
+// 4. 마우스 인터랙션 로직
+let mouseX = 0;
+let mouseY = 0;
+
+window.addEventListener("mousemove", (event) => {
+  // 좌표를 -1 ~ 1 사이로 정규화
+  mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+  mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+});
+
+// 5. 애니메이션 루프
+function animate() {
+  requestAnimationFrame(animate);
+
+  // 마우스 위치에 따라 부드럽게 회전 (LERP 개념 적용)
+  const targetRotateX = mouseY * 0.5;
+  const targetRotateY = mouseX * 0.5;
+
+  profileCard.rotation.x += (targetRotateX - profileCard.rotation.x) * 0.05;
+  profileCard.rotation.y += (targetRotateY - profileCard.rotation.y) * 0.05;
+
+  renderer.render(scene, camera);
+}
+
+// 창 크기 조절 대응
+window.addEventListener("resize", () => {
+  camera.aspect = profileWidth / profileHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(profileWidth, profileHeight);
+});
+
 window.addEventListener("resize", function () {
   // console.log("resize!", wrapper.clientHeight);
   DOOR_HEIGHT = wrapper.clientHeight;
@@ -744,6 +810,7 @@ window.onload = function () {
         // showBullets: false,
       })
       .start();
+    animate();
   }
 };
 
