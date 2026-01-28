@@ -4,7 +4,8 @@
   "description": "",
   "main": "./main.js",
   "scripts": {
-    "build": "npx webpack",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
