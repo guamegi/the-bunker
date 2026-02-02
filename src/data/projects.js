@@ -10,8 +10,8 @@ export const projects = [
     ],
     desc: "Pixel Animal Dash는 귀여운 픽셀 아트 스타일의 동물 캐릭터를 조작하여 장애물을 피하고 별을 모으며 최고 점수에 도전하는 웹 브라우저 기반 아케이드 게임. 바이브 코딩으로 제작.",
     func: "히어로 선택, 장애물 피하기, 별 모으기, 점수 기록, 반응형 사운드, 게임 오버 및 재시작 기능",
-    github: "https://github.com/guamegi/pixel-animal-dash",
-    url: "https://guamegi.github.io/pixel-animal-dash/",
+    // github: "https://github.com/guamegi/pixel-animal-dash",
+    url: "https://animal-dash.vercel.app/",
     stack: "HTML5 Canvas, CSS3, Javascript, Web Audio API",
   },
   {
