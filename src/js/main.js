@@ -19,6 +19,9 @@ const ctxDoors = canvasDoors.getContext("2d");
 const wrapper = document.querySelector("#wrapper");
 const elevatorBtn = document.querySelector("#elevatorBtn");
 
+const doorImg = new Image();
+doorImg.src = "./src/images/panel.jpeg";
+
 const DOOR_WIDTH = 150;
 let DOOR_HEIGHT = wrapper.clientHeight;
 
@@ -32,8 +35,11 @@ const state = {
   },
 };
 
-let leftDoorImg;
-let rightDoorImg;
+let isDoorImgLoaded = false;
+doorImg.onload = () => {
+  isDoorImgLoaded = true;
+  makeDoors(); // 이미지 로드 완료 시 즉시 그리기
+};
 
 // Lottie animations
 const animation = lottie.loadAnimation({
@@ -473,31 +479,14 @@ const showFloorBlinkingForStair = (stair, callback) => {
 const makeDoors = () => {
   // console.log("make doors");
   // Set canvas height to its parent container's height so it stays inside the relative box
+  if (!isDoorImgLoaded) return;
+
   const canvasContainer = canvasDoors.parentElement;
   canvasDoors.height = canvasContainer.clientHeight;
 
-  leftDoorImg = new Image();
-  rightDoorImg = new Image();
-
-  // github 주소 pathname 문제로 분기 추가
-  const href = window.location.href;
-  const panelImagePath = "/src/images/panel.jpeg";
-  if (href.charAt(href.length - 1) === "/") {
-    leftDoorImg.src = window.location.href + panelImagePath;
-    rightDoorImg.src = window.location.href + panelImagePath;
-  } else {
-    leftDoorImg.src = window.location.origin + panelImagePath;
-    rightDoorImg.src = window.location.origin + panelImagePath;
-  }
-
   ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
-
-  leftDoorImg.onload = () => {
-    ctxDoors.drawImage(leftDoorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
-  };
-  rightDoorImg.onload = () => {
-    ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
-  };
+  ctxDoors.drawImage(doorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(doorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
 };
 
 let startTime;
@@ -514,8 +503,8 @@ const openDoors = () => {
 
 const closeDoors = () => {
   // console.log("close doors");
-  ctxDoors.drawImage(leftDoorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
-  ctxDoors.drawImage(rightDoorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(doorImg, 0, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(doorImg, 151, 0, DOOR_WIDTH, DOOR_HEIGHT);
 
   state.door.leftX = 0;
   state.door.rightX = 151;
@@ -541,14 +530,8 @@ const moveDoors = () => {
   state.door.rightX += DURATION / time;
 
   ctxDoors.clearRect(0, 0, canvasDoors.width, canvasDoors.height);
-  ctxDoors.drawImage(leftDoorImg, state.door.leftX, 0, DOOR_WIDTH, DOOR_HEIGHT);
-  ctxDoors.drawImage(
-    rightDoorImg,
-    state.door.rightX,
-    0,
-    DOOR_WIDTH,
-    DOOR_HEIGHT,
-  );
+  ctxDoors.drawImage(doorImg, state.door.leftX, 0, DOOR_WIDTH, DOOR_HEIGHT);
+  ctxDoors.drawImage(doorImg, state.door.rightX, 0, DOOR_WIDTH, DOOR_HEIGHT);
 
   state.door.leftX--;
   state.door.rightX++;
