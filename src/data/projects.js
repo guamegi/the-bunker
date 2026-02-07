@@ -12,7 +12,8 @@ export const projects = [
     func: "히어로 선택, 장애물 피하기, skill 사용, 별 모으기, 점수 기록, 반응형 사운드, 게임 오버 및 재시작 기능",
     // github: "https://github.com/guamegi/pixel-animal-dash",
     url: "https://animal-dash.com/",
-    stack: "HTML5 Canvas, CSS3, Javascript, Web Audio API",
+    stack:
+      "HTML5 Canvas, CSS3, Javascript, Webpack, vercel, cloudflare, i18n, Web Audio API",
   },
   {
     no: 10,
@@ -26,7 +27,7 @@ export const projects = [
     func: "사용자 입력 문장을 기반으로 챗봇이 응답 이미지 생성, 챗봇과 대화, Light/Dark 테마 지원",
     github: "https://github.com/guamegi/gen-chat",
     // url: "https://guamegi.github.io/gen-chat/",
-    stack: "React.js, generative-ai, Webpack",
+    stack: "React.js, Webpack, GoogleGenerativeAI API",
   },
   {
     no: 9,
@@ -43,21 +44,21 @@ export const projects = [
     url: "https://guamegi.github.io/the-bunker/",
     stack: "HTML5, CSS3, Javascript, Canvas, Webpack, Tailwindcss, Intro.js",
   },
-  {
-    no: 8,
-    name: "영어 타자 연습",
-    period: "2023.09",
-    images: [
-      "src/images/projects/typing/1.png",
-      "src/images/projects/typing/2.png",
-      "src/images/projects/typing/3.png",
-    ],
-    desc: "영어 단어, 문장 타자 연습기. random (word/quote) api 호출하여 영어 단어나 문장을 데이터로 활용",
-    func: "영어 타자 속도, 정확도, 오타 횟수 등 상태를 체크.",
-    github: "https://github.com/guamegi/typing-exam",
-    url: "https://guamegi.github.io/typing-exam/",
-    stack: "HTML5, CSS3, Javascript",
-  },
+  // {
+  //   no: 8,
+  //   name: "영어 타자 연습",
+  //   period: "2023.09",
+  //   images: [
+  //     "src/images/projects/typing/1.png",
+  //     "src/images/projects/typing/2.png",
+  //     "src/images/projects/typing/3.png",
+  //   ],
+  //   desc: "영어 단어, 문장 타자 연습기. random (word/quote) api 호출하여 영어 단어나 문장을 데이터로 활용",
+  //   func: "영어 타자 속도, 정확도, 오타 횟수 등 상태를 체크.",
+  //   github: "https://github.com/guamegi/typing-exam",
+  //   url: "https://guamegi.github.io/typing-exam/",
+  //   stack: "HTML5, CSS3, Javascript",
+  // },
   {
     no: 7,
     name: "Sally's Tarot",
