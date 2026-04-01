@@ -88,7 +88,7 @@ export default class Project {
                         style="display:inline-block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:bottom;"
                         title="${this.url}"
                       >
-                        ${this.url.length > 50 ? this.url.slice(0, 50) + '...' : this.url}
+                        ${this.url.length > 50 ? this.url.slice(0, 50) + "..." : this.url}
                       </a>
                     </div>
                   </div>`
