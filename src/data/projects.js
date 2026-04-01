@@ -1,5 +1,26 @@
 export const projects = [
   {
+    no: 12,
+    name: "Mind Mirror",
+    period: "2026.03",
+    images: [
+      "src/images/projects/mindMirror/1.png",
+      "src/images/projects/mindMirror/2.png",
+      "src/images/projects/mindMirror/3.png",
+      "src/images/projects/mindMirror/4.png",
+      "src/images/projects/mindMirror/5.png",
+      "src/images/projects/mindMirror/6.png",
+      "src/images/projects/mindMirror/7.png",
+    ],
+    desc: `"AI가 분석하는 오늘의 마음 기록, 나를 비추는 매일의 거울"
+Mind Mirror는 사용자가 기록한 일상의 텍스트와 대화를 기반으로 AI가 심리를 분석하고 맞춤형 피드백을 제공하는 AI 심리 분석 다이어리 서비스.`,
+    func: "AI 심리 분석, 대화형 일기 가이드, 감정 통계 대시보드, 글로벌 로컬라이징, social login(google, apple)",
+    // github: "https://github.com/guamegi/pixel-animal-dash",
+    url: "https://apps.apple.com/kr/app/mind-mirror-ai-%EC%8B%AC%EB%A6%AC-%EB%B6%84%EC%84%9D-%EC%9D%BC%EA%B8%B0%EC%9E%A5/id6759994294",
+    stack:
+      "Flutter, Dart, Firebase, google_generative_ai, fl_chart, flutter_localizations, claude code",
+  },
+  {
     no: 11,
     name: "Animal Dash",
     period: "2026.01",
@@ -9,11 +30,11 @@ export const projects = [
       "src/images/projects/pixelAnimalDash/3.png",
     ],
     desc: "Animal Dash는 귀여운 픽셀 아트 스타일의 동물 캐릭터를 조작하여 장애물을 피하고 별을 모으며 최고 점수에 도전하는 웹 브라우저 기반 아케이드 게임.",
-    func: "히어로 선택, 장애물 피하기, skill 사용, 별 모으기, 점수 기록, 반응형 사운드, 게임 오버 및 재시작 기능",
+    func: "hero 선택, skill 사용, ranking, 난이도/언어 설정,반응형 사운드, 게임 오버 및 재시작 기능",
     // github: "https://github.com/guamegi/pixel-animal-dash",
     url: "https://animal-dash.com/",
     stack:
-      "HTML5 Canvas, CSS3, Javascript, Webpack, vercel, cloudflare, i18n, Web Audio API",
+      "HTML5 Canvas, CSS3, Javascript, Webpack, vercel, cloudflare, firebase, i18n, Web Audio API",
   },
   {
     no: 10,

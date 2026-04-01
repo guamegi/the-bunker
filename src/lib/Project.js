@@ -80,13 +80,15 @@ export default class Project {
                     <div class="w-1/3 md:w-1/3 font-normal pl-2">
                       URL
                     </div>
-                    <div class="w-2/3 md:w-2/3">
+                    <div class="w-2/3 md:w-2/3 overflow-hidden text-ellipsis whitespace-nowrap">
                       <a
                         href="${this.url}"
                         target="_blank"
                         rel="noopener noreferrer"
+                        style="display:inline-block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:bottom;"
+                        title="${this.url}"
                       >
-                      ${this.url}
+                        ${this.url.length > 50 ? this.url.slice(0, 50) + '...' : this.url}
                       </a>
                     </div>
                   </div>`
