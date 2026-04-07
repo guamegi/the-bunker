@@ -18,7 +18,7 @@ Mind Mirror는 사용자가 기록한 일상의 텍스트와 대화를 기반으
     // github: "https://github.com/guamegi/pixel-animal-dash",
     url: "https://apps.apple.com/kr/app/mind-mirror-ai-%EC%8B%AC%EB%A6%AC-%EB%B6%84%EC%84%9D-%EC%9D%BC%EA%B8%B0%EC%9E%A5/id6759994294",
     stack:
-      "Flutter, Dart, Firebase, google_generative_ai, fl_chart, flutter_localizations, claude code",
+      "Flutter, Dart, Riverpod, Firebase, google_generative_ai, fl_chart, flutter_localizations, claude code",
   },
   {
     no: 11,
