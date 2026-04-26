@@ -58,13 +58,13 @@ export const skills = [
   {
     category: "Back-End",
     name: "Redis",
-    percentage: 80,
+    percentage: 75,
     color: "purple",
   },
   {
     category: "Mobile App",
     name: "Flutter",
-    percentage: 65,
+    percentage: 80,
     color: "red",
   },
   {

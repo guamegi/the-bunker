@@ -16,7 +16,10 @@ export const projects = [
 Mind Mirror는 사용자가 기록한 일상의 텍스트와 대화를 기반으로 AI가 심리를 분석하고 맞춤형 피드백을 제공하는 AI 심리 분석 다이어리 서비스.`,
     func: "AI 심리 분석, 대화형 일기 가이드, 감정 통계 대시보드, 글로벌 로컬라이징, social login(google, apple)",
     // github: "https://github.com/guamegi/pixel-animal-dash",
-    url: "https://apps.apple.com/kr/app/mind-mirror-ai-%EC%8B%AC%EB%A6%AC-%EB%B6%84%EC%84%9D-%EC%9D%BC%EA%B8%B0%EC%9E%A5/id6759994294",
+    url: [
+      "https://apps.apple.com/kr/app/mind-mirror-ai-%EC%8B%AC%EB%A6%AC-%EB%B6%84%EC%84%9D-%EC%9D%BC%EA%B8%B0%EC%9E%A5/id6759994294",
+      "https://play.google.com/store/apps/details?id=com.mindmirror.mind_mirror",
+    ],
     stack:
       "Flutter, Dart, Riverpod, Firebase, google_generative_ai, fl_chart, flutter_localizations, claude code",
   },

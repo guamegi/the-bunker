@@ -76,22 +76,25 @@ export default class Project {
                   }
                   ${
                     this.url
-                      ? `<div class="flex py-2">
+                      ? (() => {
+                          const urls = Array.isArray(this.url) ? this.url : [this.url];
+                          return urls.map((u, i) => `<div class="flex py-2">
                     <div class="w-1/3 md:w-1/3 font-normal pl-2">
-                      URL
+                      ${i === 0 ? "URL" : ""}
                     </div>
                     <div class="w-2/3 md:w-2/3 overflow-hidden text-ellipsis whitespace-nowrap">
                       <a
-                        href="${this.url}"
+                        href="${u}"
                         target="_blank"
                         rel="noopener noreferrer"
                         style="display:inline-block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:bottom;"
-                        title="${this.url}"
+                        title="${u}"
                       >
-                        ${this.url.length > 50 ? this.url.slice(0, 50) + "..." : this.url}
+                        ${u.length > 50 ? u.slice(0, 50) + "..." : u}
                       </a>
                     </div>
-                  </div>`
+                  </div>`).join("");
+                        })()
                       : ""
                   }
                  
