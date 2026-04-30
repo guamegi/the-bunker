@@ -86,6 +86,12 @@ export const skills = [
     color: "gray",
   },
   {
+    category: "CI/CD",
+    name: "GitHub Actions",
+    percentage: 80,
+    color: "gray",
+  },
+  {
     category: "Version Control",
     name: "Git",
     percentage: 85,
