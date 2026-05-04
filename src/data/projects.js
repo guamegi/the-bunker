@@ -12,9 +12,9 @@ export const projects = [
       "src/images/projects/mindMirrorLandingPage/6.png",
     ],
     desc: `Mind Mirror 랜딩페이지는 AI 심리 분석 다이어리 서비스의 핵심 가치와 주요 기능을 한눈에 전달하기 위해 제작한 프로모션 웹사이트. 서비스 소개, 감정 분석 방식, AI 대화 일기, 사진 기반 일기, 다운로드 유도까지 하나의 흐름으로 구성해 사용자 이해와 전환을 강화.`,
-    func: "반응형 랜딩페이지, 다국어 전환(한국어/영어/일본어/중국어), 라이트/다크 테마, 주요 기능 섹션 안내, 앱 다운로드 CTA",
+    func: "반응형 랜딩페이지, 다국어 전환(한국어/영어/일본어/중국어), SSG, 라이트/다크 테마, 주요 기능 섹션 안내, 앱 다운로드 CTA",
     github: "https://github.com/guamegi/mind-mirror-landing-page",
-    url: "https://guamegi.github.io/mind-mirror-landing-page/",
+    url: "https://mind-mirror.app/",
     stack: "Next.js 15, React.js 19, TypeScript, Gighub Actions",
   },
   {
